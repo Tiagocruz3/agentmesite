@@ -180,7 +180,7 @@ const Hero = () => {
         <motion.button whileHover={{ scale: 1.05, boxShadow: '0 8px 30px rgba(34, 197, 94, 0.4)' }} whileTap={{ scale: 0.98 }}
           style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px',
-            background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)', color: '#0B0F17',
+            background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)', color: '#FFFFFF',
             fontWeight: 700, fontSize: '14px', borderRadius: '100px', border: 'none', cursor: 'pointer',
             boxShadow: '0 4px 20px rgba(34, 197, 94, 0.3)'
           }}>
@@ -230,7 +230,7 @@ const Hero = () => {
             <motion.button whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(34, 197, 94, 0.4)' }} whileTap={{ scale: 0.98 }}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '18px 36px',
-                background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)', color: '#0B0F17',
+                background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)', color: '#FFFFFF',
                 fontWeight: 700, fontSize: '16px', borderRadius: '14px', border: 'none', cursor: 'pointer',
                 boxShadow: '0 4px 30px rgba(34, 197, 94, 0.3)'
               }}>
@@ -567,7 +567,7 @@ const Hero = () => {
               <motion.button whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(34, 197, 94, 0.4)' }} whileTap={{ scale: 0.98 }}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '18px 36px',
-                  background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)', color: '#0B0F17',
+                  background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)', color: '#FFFFFF',
                   fontWeight: 700, fontSize: '16px', borderRadius: '14px', border: 'none', cursor: 'pointer',
                   boxShadow: '0 4px 30px rgba(34, 197, 94, 0.3)'
                 }}>
