@@ -246,15 +246,15 @@ const Hero = () => {
               <FileText style={{ width: '20px', height: '20px' }} />
               Read Docs
             </motion.button>
-            <motion.button whileHover={{ scale: 1.05, borderColor: '#8B5CF6', color: '#8B5CF6' }} whileTap={{ scale: 0.98 }}
+            <motion.a href="https://github.com/Agentme-AI/Server" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05, borderColor: '#8B5CF6', color: '#8B5CF6' }} whileTap={{ scale: 0.98 }}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '18px 36px',
                 background: 'transparent', color: '#9AA6B2', fontWeight: 600,
-                fontSize: '16px', borderRadius: '14px', border: '1px solid #2F3F61', cursor: 'pointer'
+                fontSize: '16px', borderRadius: '14px', border: '1px solid #2F3F61', cursor: 'pointer', textDecoration: 'none'
               }}>
               <GitFork style={{ width: '20px', height: '20px' }} />
               View GitHub
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
 
@@ -574,15 +574,15 @@ const Hero = () => {
                 Deploy Agent Me
                 <ArrowRight style={{ width: '20px', height: '20px' }} />
               </motion.button>
-              <motion.button whileHover={{ scale: 1.05, borderColor: '#3DDC97' }} whileTap={{ scale: 0.98 }}
+              <motion.a href="https://github.com/Agentme-AI/Server" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05, borderColor: '#3DDC97' }} whileTap={{ scale: 0.98 }}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '18px 36px',
                   background: 'transparent', color: '#E6EDF7', fontWeight: 600,
-                  fontSize: '16px', borderRadius: '14px', border: '1px solid #2F3F61', cursor: 'pointer'
+                  fontSize: '16px', borderRadius: '14px', border: '1px solid #2F3F61', cursor: 'pointer', textDecoration: 'none'
                 }}>
                 <GitFork style={{ width: '20px', height: '20px' }} />
                 View on GitHub
-              </motion.button>
+              </motion.a>
             </div>
           </div>
         </motion.div>

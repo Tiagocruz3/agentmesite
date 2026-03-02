@@ -19,7 +19,7 @@ npm run dev
 ✓ Profile shortcuts`,
   
   openClaw: `# OpenClaw - Base Framework
-git clone https://github.com/openclaw/core
+git clone https://github.com/Agentme-AI/Server
 
 # Install dependencies
 cd openclaw && npm install
