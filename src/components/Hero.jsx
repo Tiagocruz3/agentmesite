@@ -156,14 +156,15 @@ const Hero = () => {
         }}
       >
         <motion.div whileHover={{ scale: 1.05 }} style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}>
-          <div style={{
-            width: '44px', height: '44px', borderRadius: '14px',
-            background: 'linear-gradient(135deg, #3DDC97 0%, #22C55E 100%)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 4px 30px rgba(61, 220, 151, 0.4), 0 0 60px rgba(61, 220, 151, 0.2)'
-          }}>
-            <Zap style={{ width: '24px', height: '24px', color: '#0B0F17' }} />
-          </div>
+          <img 
+            src="/logo.jpg" 
+            alt="Agent Me Logo" 
+            style={{
+              width: '44px', height: '44px', borderRadius: '14px',
+              objectFit: 'cover',
+              boxShadow: '0 4px 30px rgba(61, 220, 151, 0.4), 0 0 60px rgba(61, 220, 151, 0.2)'
+            }} 
+          />
           <span style={{ fontSize: '22px', fontWeight: 800, color: '#E6EDF7', letterSpacing: '-0.5px' }}>Agent Me</span>
         </motion.div>
         
@@ -602,14 +603,15 @@ const Hero = () => {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '24px' }}>
             <div style={{ width: '40px', height: '1px', background: 'linear-gradient(90deg, transparent, #2F3F61)' }} />
-            <div style={{
-              width: '44px', height: '44px', borderRadius: '14px',
-              background: 'linear-gradient(135deg, #3DDC97 0%, #22C55E 100%)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 4px 20px rgba(61, 220, 151, 0.3)'
-            }}>
-              <Zap style={{ width: '22px', height: '22px', color: '#0B0F17' }} />
-            </div>
+            <img 
+              src="/logo.jpg" 
+              alt="Agent Me Logo" 
+              style={{
+                width: '44px', height: '44px', borderRadius: '14px',
+                objectFit: 'cover',
+                boxShadow: '0 4px 20px rgba(61, 220, 151, 0.3)'
+              }} 
+            />
             <div style={{ width: '40px', height: '1px', background: 'linear-gradient(90deg, #2F3F61, transparent)' }} />
           </div>
           <p style={{ color: '#9AA6B2', fontSize: '14px', lineHeight: 1.8 }}>
