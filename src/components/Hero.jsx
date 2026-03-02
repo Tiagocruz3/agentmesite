@@ -91,10 +91,9 @@ const whyFeatures = [
 ]
 
 const includedFeatures = [
-  'Dashboard + Chat interface',
-  'Workforce management cards',
-  'Smart scheduling UI',
-  'Profile presets'
+  'npm run build — Build server and UI',
+  'npm run agentme — Run the CLI',
+  'npm start — Start the gateway server'
 ]
 
 const trustFeatures = [
@@ -116,7 +115,7 @@ const Hero = () => {
   const [copied, setCopied] = useState(false)
 
   const copyInstall = () => {
-    navigator.clipboard.writeText('npm install @agentme/server\nnpx agentme init --template=operator\nnpm run dev')
+    navigator.clipboard.writeText('# Install AgentMe globally\nnpm install -g agentme@latest\n\n# Run the onboarding wizard\nagentme onboard --install-daemon\n\n# Start the gateway\nagentme gateway --port 18789')
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -333,12 +332,12 @@ const Hero = () => {
             <div style={{ padding: '28px' }}>
               <pre style={{ margin: 0, fontFamily: "'JetBrains Mono', 'Fira Code', monospace", fontSize: '15px', lineHeight: 1.8, color: '#E6EDF7' }}>
                 <code>
-                  <span style={{ color: '#6B7280' }}># Install Agent Me Server</span>{"\n"}
-                  <span style={{ color: '#3DDC97' }}>npm install</span> <span style={{ color: '#E6EDF7' }}>@agentme/server</span>{"\n\n"}
-                  <span style={{ color: '#6B7280' }}># Initialize with operator template</span>{"\n"}
-                  <span style={{ color: '#3DDC97' }}>npx agentme init</span> <span style={{ color: '#8B5CF6' }}>--template=operator</span>{"\n\n"}
-                  <span style={{ color: '#6B7280' }}># Start the control plane</span>{"\n"}
-                  <span style={{ color: '#3DDC97' }}>npm run dev</span>
+                  <span style={{ color: '#6B7280' }}># Install AgentMe globally</span>{"\n"}
+                  <span style={{ color: '#3DDC97' }}>npm install -g</span> <span style={{ color: '#E6EDF7' }}>agentme@latest</span>{"\n\n"}
+                  <span style={{ color: '#6B7280' }}># Run the onboarding wizard</span>{"\n"}
+                  <span style={{ color: '#3DDC97' }}>agentme onboard</span> <span style={{ color: '#8B5CF6' }}>--install-daemon</span>{"\n\n"}
+                  <span style={{ color: '#6B7280' }}># Start the gateway</span>{"\n"}
+                  <span style={{ color: '#3DDC97' }}>agentme gateway</span> <span style={{ color: '#E6EDF7' }}>--port 18789</span>
                 </code>
               </pre>
             </div>
