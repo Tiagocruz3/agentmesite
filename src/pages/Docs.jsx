@@ -648,9 +648,9 @@ const Docs = () => {
                 src="/logo.png" 
                 alt="Agent Me" 
                 style={{
-                  width: '180px',
+                  width: '320px',
                   height: 'auto',
-                  maxHeight: '52px',
+                  maxHeight: '75px',
                   objectFit: 'contain',
                   background: 'transparent'
                 }} 
