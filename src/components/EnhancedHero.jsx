@@ -128,7 +128,7 @@ const AnimatedLogo = () => (
   <motion.div
     style={{
       position: 'relative',
-      width: '1200px',
+      width: '600px',
       maxWidth: '95vw',
       height: 'auto',
       margin: '0 auto 60px',
@@ -181,7 +181,7 @@ const AnimatedLogo = () => (
       }}
     >
       <img 
-        src="/hero-main.png" 
+        src="/hero-new.png" 
         alt="Agent Me Server" 
         style={{
           width: '100%',
