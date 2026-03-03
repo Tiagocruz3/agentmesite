@@ -126,7 +126,7 @@ const slides = [
     headline: "Deploy AI Agents",
     highlight: "Anywhere",
     subheadline: "The open-source platform for building, deploying, and managing AI agents across WhatsApp, Telegram, Slack, and more.",
-    image: "/hero-new.png",
+    image: "/slide1.png",
     stats: [
       { value: "20+", label: "AI Providers" },
       { value: "5+", label: "Channels" },
@@ -139,7 +139,7 @@ const slides = [
     headline: "One Platform",
     highlight: "All Channels",
     subheadline: "Connect your agents to WhatsApp, Telegram, Slack, Discord, and WebChat from a single dashboard.",
-    image: "/hero-new.png",
+    image: "/slide2.png",
     stats: [
       { value: "WhatsApp", label: "Business API" },
       { value: "Telegram", label: "Bot API" },
@@ -152,7 +152,7 @@ const slides = [
     headline: "Your Data",
     highlight: "Your Control",
     subheadline: "Self-hosted infrastructure means your data stays on your servers. Zero vendor lock-in, complete privacy.",
-    image: "/hero-new.png",
+    image: "/slide3.png",
     stats: [
       { value: "Zero", label: "Vendor Lock-in" },
       { value: "100%", label: "Data Control" },
