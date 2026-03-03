@@ -720,12 +720,22 @@ const Hero = () => {
           textAlign: 'center'
         }}>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', marginBottom: '40px' }}>
-            {['GitHub', 'Twitter', 'Discord', 'Documentation'].map((link) => (
-              <motion.a key={link} href="#" whileHover={{ color: '#3DDC97' }}
-                style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
-                {link}
-              </motion.a>
-            ))}
+            <motion.a href="https://github.com/Agentme-AI/Server" target="_blank" rel="noopener noreferrer" whileHover={{ color: '#3DDC97' }}
+              style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
+              GitHub
+            </motion.a>
+            <motion.a href="https://x.com/Agentme_Ai" target="_blank" rel="noopener noreferrer" whileHover={{ color: '#3DDC97' }}
+              style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
+              X
+            </motion.a>
+            <motion.a href="https://t.me/+MaFHhTWO129jOTM1" target="_blank" rel="noopener noreferrer" whileHover={{ color: '#3DDC97' }}
+              style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
+              Telegram
+            </motion.a>
+            <motion.a href="#" whileHover={{ color: '#3DDC97' }}
+              style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
+              Documentation
+            </motion.a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '24px' }}>
             <div style={{ width: '40px', height: '1px', background: 'linear-gradient(90deg, transparent, #2F3F61)' }} />
