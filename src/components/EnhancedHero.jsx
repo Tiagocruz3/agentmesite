@@ -181,7 +181,7 @@ const AnimatedLogo = () => (
       }}
     >
       <img 
-        src="/hero-copy.png" 
+        src="/hero-main.png" 
         alt="Agent Me Server" 
         style={{
           width: '100%',
