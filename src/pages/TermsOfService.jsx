@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { MenuBarLogo } from '../components/SliderHero'
 import { FileText, Scale, Shield, AlertCircle, ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -145,23 +146,7 @@ Last Updated: March 2026`
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Link to="/" style={{ textDecoration: 'none' }}>
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            >
-              <img 
-                src="/logo.png" 
-                alt="Agent Me" 
-                style={{
-                  width: '200px',
-                  height: 'auto',
-                  maxHeight: '52px',
-                  objectFit: 'contain',
-                  background: 'transparent'
-                }} 
-              />
-            </motion.div>
+            <MenuBarLogo onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
           </Link>
           <Link to="/" style={{ textDecoration: 'none' }}>
             <motion.div

@@ -30,7 +30,7 @@ import {
 import ComparisonCard from './ComparisonCard'
 import FeatureMatrix from './FeatureMatrix'
 import ParticleBackground from './ParticleBackground'
-import EnhancedHero from './EnhancedHero'
+import SliderHero, { MenuBarLogo } from './SliderHero'
 
 const comparisonData = {
   agenteMe: {
@@ -159,23 +159,7 @@ const Hero = () => {
           maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 10
         }}
       >
-        <motion.div 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          whileHover={{ scale: 1.05 }} 
-          style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
-        >
-          <img 
-            src="/logo.png" 
-            alt="Agent Me" 
-            style={{
-              width: '220px',
-              height: 'auto',
-              maxHeight: '56px',
-              objectFit: 'contain',
-              background: 'transparent'
-            }} 
-          />
-        </motion.div>
+        <MenuBarLogo onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
         
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(14, 20, 33, 0.8)', padding: '6px', borderRadius: '100px', border: '1px solid rgba(47, 63, 97, 0.5)', backdropFilter: 'blur(10px)' }}>
           {['Comparison', 'Features', 'Security', 'Roadmap'].map((item, i) => (
@@ -221,8 +205,8 @@ const Hero = () => {
         </motion.button>
       </motion.nav>
 
-      {/* Enhanced Hero Section */}
-      <EnhancedHero />
+      {/* Slider Hero Section */}
+      <SliderHero />
 
       {/* Main Content */}
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 80px', position: 'relative', zIndex: 5 }}>
@@ -704,8 +688,10 @@ const Hero = () => {
               src="/logo.png" 
               alt="Agent Me" 
               style={{
-                width: '140px', height: '42px',
-                objectFit: 'cover',
+                width: '180px',
+                height: 'auto',
+                maxHeight: '48px',
+                objectFit: 'contain',
                 background: 'transparent'
               }} 
             />
