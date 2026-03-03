@@ -128,86 +128,88 @@ const AnimatedLogo = () => (
   <motion.div
     style={{
       position: 'relative',
-      width: '280px',
-      height: '84px',
-      margin: '0 auto 32px',
+      width: '600px',
+      maxWidth: '90vw',
+      height: 'auto',
+      margin: '0 auto 40px',
     }}
-    initial={{ scale: 0, opacity: 0 }}
+    initial={{ scale: 0.8, opacity: 0 }}
     animate={{ scale: 1, opacity: 1 }}
     transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
   >
-    {/* Glow effect behind logo */}
+    {/* Glow effect behind image */}
     <motion.div
       style={{
         position: 'absolute',
-        inset: -20,
-        borderRadius: '20px',
-        background: 'radial-gradient(ellipse at center, rgba(61, 220, 151, 0.3) 0%, transparent 70%)',
-        filter: 'blur(20px)',
+        inset: -30,
+        borderRadius: '30px',
+        background: 'radial-gradient(ellipse at center, rgba(61, 220, 151, 0.25) 0%, transparent 70%)',
+        filter: 'blur(30px)',
       }}
       animate={{
-        opacity: [0.5, 0.8, 0.5],
+        opacity: [0.4, 0.7, 0.4],
         scale: [1, 1.05, 1],
       }}
       transition={{
-        duration: 3,
+        duration: 4,
         repeat: Infinity,
         ease: "easeInOut"
       }}
     />
     
-    {/* Logo image */}
+    {/* Hero image */}
     <motion.div
       style={{
         width: '100%',
-        height: '100%',
-        borderRadius: '16px',
+        borderRadius: '24px',
         overflow: 'hidden',
-        boxShadow: '0 0 40px rgba(61, 220, 151, 0.4), 0 0 80px rgba(61, 220, 151, 0.2)',
-        border: '2px solid rgba(61, 220, 151, 0.4)',
+        boxShadow: '0 0 60px rgba(61, 220, 151, 0.3), 0 0 120px rgba(61, 220, 151, 0.15)',
+        border: '2px solid rgba(61, 220, 151, 0.3)',
       }}
-      whileHover={{ scale: 1.03 }}
+      whileHover={{ scale: 1.02 }}
       animate={{
         boxShadow: [
-          '0 0 40px rgba(61, 220, 151, 0.4), 0 0 80px rgba(61, 220, 151, 0.2)',
-          '0 0 60px rgba(61, 220, 151, 0.6), 0 0 100px rgba(61, 220, 151, 0.4)',
-          '0 0 40px rgba(61, 220, 151, 0.4), 0 0 80px rgba(61, 220, 151, 0.2)',
+          '0 0 60px rgba(61, 220, 151, 0.3), 0 0 120px rgba(61, 220, 151, 0.15)',
+          '0 0 80px rgba(61, 220, 151, 0.5), 0 0 140px rgba(61, 220, 151, 0.25)',
+          '0 0 60px rgba(61, 220, 151, 0.3), 0 0 120px rgba(61, 220, 151, 0.15)',
         ]
       }}
       transition={{
-        duration: 3,
+        duration: 4,
         repeat: Infinity,
         ease: "easeInOut"
       }}
     >
       <img 
-        src="/logo.png" 
-        alt="Agent Me" 
+        src="/hero-copy.png" 
+        alt="Agent Me Server" 
         style={{
           width: '100%',
-          height: '100%',
-          objectFit: 'cover',
+          height: 'auto',
+          objectFit: 'contain',
+          display: 'block',
         }}
       />
     </motion.div>
     
-    {/* Floating badge */}
+    {/* Floating version badge */}
     <motion.div
       style={{
         position: 'absolute',
-        bottom: -8,
-        right: -12,
-        padding: '6px 12px',
+        bottom: -15,
+        right: -20,
+        padding: '10px 20px',
         background: 'linear-gradient(135deg, #3DDC97, #22C55E)',
         borderRadius: '100px',
-        fontSize: '11px',
-        fontWeight: 700,
+        fontSize: '14px',
+        fontWeight: 800,
         color: '#0B0F17',
-        boxShadow: '0 4px 15px rgba(61, 220, 151, 0.4)',
+        boxShadow: '0 8px 30px rgba(61, 220, 151, 0.5)',
+        border: '2px solid rgba(255, 255, 255, 0.2)',
       }}
       initial={{ scale: 0, y: 20 }}
       animate={{ scale: 1, y: 0 }}
-      transition={{ delay: 0.5, type: "spring" }}
+      transition={{ delay: 0.6, type: "spring" }}
     >
       v2026.2.9
     </motion.div>
