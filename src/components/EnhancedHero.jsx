@@ -161,17 +161,16 @@ const AnimatedLogo = () => (
     <motion.div
       style={{
         width: '100%',
-        borderRadius: '32px',
+        borderRadius: '24px',
         overflow: 'hidden',
-        boxShadow: '0 0 100px rgba(61, 220, 151, 0.25), 0 0 200px rgba(61, 220, 151, 0.1)',
-        border: '3px solid rgba(61, 220, 151, 0.25)',
+        boxShadow: '0 0 80px rgba(61, 220, 151, 0.2), 0 0 160px rgba(61, 220, 151, 0.1)',
       }}
-      whileHover={{ scale: 1.01 }}
+      whileHover={{ scale: 1.02 }}
       animate={{
         boxShadow: [
-          '0 0 100px rgba(61, 220, 151, 0.25), 0 0 200px rgba(61, 220, 151, 0.1)',
-          '0 0 140px rgba(61, 220, 151, 0.4), 0 0 280px rgba(61, 220, 151, 0.2)',
-          '0 0 100px rgba(61, 220, 151, 0.25), 0 0 200px rgba(61, 220, 151, 0.1)',
+          '0 0 80px rgba(61, 220, 151, 0.2), 0 0 160px rgba(61, 220, 151, 0.1)',
+          '0 0 120px rgba(61, 220, 151, 0.35), 0 0 240px rgba(61, 220, 151, 0.15)',
+          '0 0 80px rgba(61, 220, 151, 0.2), 0 0 160px rgba(61, 220, 151, 0.1)',
         ]
       }}
       transition={{
