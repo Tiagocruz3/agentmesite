@@ -30,6 +30,7 @@ import {
 import ComparisonCard from './ComparisonCard'
 import FeatureMatrix from './FeatureMatrix'
 import ParticleBackground from './ParticleBackground'
+import Docs from './Docs'
 
 const comparisonData = {
   agenteMe: {
@@ -172,7 +173,7 @@ const Hero = () => {
         </motion.div>
         
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(14, 20, 33, 0.8)', padding: '6px', borderRadius: '100px', border: '1px solid rgba(47, 63, 97, 0.5)', backdropFilter: 'blur(10px)' }}>
-          {['Comparison', 'Features', 'Security', 'Roadmap'].map((item, i) => (
+          {['Comparison', 'Features', 'Security', 'Docs', 'Roadmap'].map((item, i) => (
             <motion.button 
               key={item} 
               onClick={() => {
@@ -620,6 +621,9 @@ const Hero = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* DOCS */}
+        <Docs />
 
         {/* ROADMAP */}
         <div id="roadmap" style={{ marginBottom: '120px' }}>
