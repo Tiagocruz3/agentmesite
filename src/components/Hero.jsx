@@ -168,9 +168,9 @@ const Hero = () => {
             src="/logo.png" 
             alt="Agent Me" 
             style={{
-              width: '350px',
+              width: '160px',
               height: 'auto',
-              maxHeight: '80px',
+              maxHeight: '48px',
               objectFit: 'contain',
               background: 'transparent'
             }} 

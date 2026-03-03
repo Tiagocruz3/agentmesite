@@ -128,10 +128,10 @@ const AnimatedLogo = () => (
   <motion.div
     style={{
       position: 'relative',
-      width: '600px',
-      maxWidth: '90vw',
+      width: '1200px',
+      maxWidth: '95vw',
       height: 'auto',
-      margin: '0 auto 40px',
+      margin: '0 auto 60px',
     }}
     initial={{ scale: 0.8, opacity: 0 }}
     animate={{ scale: 1, opacity: 1 }}
@@ -141,10 +141,10 @@ const AnimatedLogo = () => (
     <motion.div
       style={{
         position: 'absolute',
-        inset: -30,
-        borderRadius: '30px',
-        background: 'radial-gradient(ellipse at center, rgba(61, 220, 151, 0.25) 0%, transparent 70%)',
-        filter: 'blur(30px)',
+        inset: -60,
+        borderRadius: '40px',
+        background: 'radial-gradient(ellipse at center, rgba(61, 220, 151, 0.2) 0%, transparent 70%)',
+        filter: 'blur(50px)',
       }}
       animate={{
         opacity: [0.4, 0.7, 0.4],
@@ -161,17 +161,17 @@ const AnimatedLogo = () => (
     <motion.div
       style={{
         width: '100%',
-        borderRadius: '24px',
+        borderRadius: '32px',
         overflow: 'hidden',
-        boxShadow: '0 0 60px rgba(61, 220, 151, 0.3), 0 0 120px rgba(61, 220, 151, 0.15)',
-        border: '2px solid rgba(61, 220, 151, 0.3)',
+        boxShadow: '0 0 100px rgba(61, 220, 151, 0.25), 0 0 200px rgba(61, 220, 151, 0.1)',
+        border: '3px solid rgba(61, 220, 151, 0.25)',
       }}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.01 }}
       animate={{
         boxShadow: [
-          '0 0 60px rgba(61, 220, 151, 0.3), 0 0 120px rgba(61, 220, 151, 0.15)',
-          '0 0 80px rgba(61, 220, 151, 0.5), 0 0 140px rgba(61, 220, 151, 0.25)',
-          '0 0 60px rgba(61, 220, 151, 0.3), 0 0 120px rgba(61, 220, 151, 0.15)',
+          '0 0 100px rgba(61, 220, 151, 0.25), 0 0 200px rgba(61, 220, 151, 0.1)',
+          '0 0 140px rgba(61, 220, 151, 0.4), 0 0 280px rgba(61, 220, 151, 0.2)',
+          '0 0 100px rgba(61, 220, 151, 0.25), 0 0 200px rgba(61, 220, 151, 0.1)',
         ]
       }}
       transition={{
@@ -196,16 +196,16 @@ const AnimatedLogo = () => (
     <motion.div
       style={{
         position: 'absolute',
-        bottom: -15,
-        right: -20,
-        padding: '10px 20px',
+        bottom: -20,
+        right: -30,
+        padding: '16px 32px',
         background: 'linear-gradient(135deg, #3DDC97, #22C55E)',
         borderRadius: '100px',
-        fontSize: '14px',
+        fontSize: '18px',
         fontWeight: 800,
         color: '#0B0F17',
-        boxShadow: '0 8px 30px rgba(61, 220, 151, 0.5)',
-        border: '2px solid rgba(255, 255, 255, 0.2)',
+        boxShadow: '0 12px 40px rgba(61, 220, 151, 0.5)',
+        border: '3px solid rgba(255, 255, 255, 0.2)',
       }}
       initial={{ scale: 0, y: 20 }}
       animate={{ scale: 1, y: 0 }}
