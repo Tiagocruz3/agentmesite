@@ -470,7 +470,7 @@ const EnhancedHero = () => {
               gap: '12px',
               padding: '20px 40px',
               background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)',
-              color: '#0B0F17',
+              color: '#FFFFFF',
               fontWeight: 800,
               fontSize: '17px',
               borderRadius: '16px',

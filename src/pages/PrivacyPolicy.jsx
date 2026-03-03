@@ -235,14 +235,17 @@ For security vulnerabilities, please use responsible disclosure and contact us p
           <Link to="/" style={{ textDecoration: 'none' }}>
             <motion.div 
               whileHover={{ scale: 1.05 }}
-              style={{ display: 'flex', alignItems: 'center' }}
+              style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <img 
                 src="/logo.png" 
                 alt="Agent Me" 
                 style={{
-                  width: '150px', height: '44px',
-                  objectFit: 'cover',
+                  width: '180px',
+                  height: 'auto',
+                  maxHeight: '52px',
+                  objectFit: 'contain',
                   background: 'transparent'
                 }} 
               />

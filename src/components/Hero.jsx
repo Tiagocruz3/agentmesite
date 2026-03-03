@@ -159,13 +159,19 @@ const Hero = () => {
           maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 10
         }}
       >
-        <motion.div whileHover={{ scale: 1.05 }} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+        <motion.div 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          whileHover={{ scale: 1.05 }} 
+          style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+        >
           <img 
             src="/logo.png" 
             alt="Agent Me" 
             style={{
-              width: '160px', height: '48px',
-              objectFit: 'cover',
+              width: '200px',
+              height: 'auto',
+              maxHeight: '56px',
+              objectFit: 'contain',
               background: 'transparent'
             }} 
           />
