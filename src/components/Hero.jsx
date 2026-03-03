@@ -736,9 +736,25 @@ const Hero = () => {
               style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
               Telegram
             </motion.a>
-            <motion.a href="#" whileHover={{ color: '#3DDC97' }}
-              style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
+            <motion.a href="#docs" onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('docs')?.scrollIntoView({ behavior: 'smooth' });
+            }} whileHover={{ color: '#3DDC97' }}
+              style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s', cursor: 'pointer' }}>
               Documentation
+            </motion.a>
+          </div>
+          
+          {/* Legal Links */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '32px' }}>
+            <motion.a href="/terms" whileHover={{ color: '#3DDC97' }}
+              style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '13px', fontWeight: 500, transition: 'color 0.2s' }}>
+              Terms of Service
+            </motion.a>
+            <span style={{ color: 'rgba(47, 63, 97, 0.5)' }}>|</span>
+            <motion.a href="/privacy" whileHover={{ color: '#3DDC97' }}
+              style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '13px', fontWeight: 500, transition: 'color 0.2s' }}>
+              Privacy Policy
             </motion.a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '24px' }}>
