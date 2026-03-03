@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
-import { MenuBarLogo } from '../components/SliderHero'
-import { FileText, Scale, Shield, AlertCircle, ArrowLeft } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import SimpleNavbar from '../components/SimpleNavbar'
+import { FileText, Scale, Shield, AlertCircle } from 'lucide-react'
 
 const TermsOfService = () => {
   const sections = [

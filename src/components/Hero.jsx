@@ -30,7 +30,8 @@ import {
 import ComparisonCard from './ComparisonCard'
 import FeatureMatrix from './FeatureMatrix'
 import ParticleBackground from './ParticleBackground'
-import SliderHero, { MenuBarLogo } from './SliderHero'
+import SliderHero from './SliderHero'
+import Navbar from './Navbar'
 
 const comparisonData = {
   agenteMe: {
@@ -126,87 +127,35 @@ const Hero = () => {
   }
 
   return (
-    <section ref={containerRef} style={{ minHeight: '100vh', width: '100%', position: 'relative', overflow: 'hidden' }}>
-      <ParticleBackground />
+    <>
+      {/* Fixed Navbar - Always visible at top */}
+      <Navbar />
       
-      {/* Animated gradient orbs */}
-      <motion.div 
-        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        style={{
-          position: 'absolute', width: '800px', height: '800px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(61, 220, 151, 0.15) 0%, transparent 70%)',
-          top: '-400px', right: '-200px', pointerEvents: 'none', filter: 'blur(60px)'
-        }}
-      />
-      <motion.div 
-        animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        style={{
-          position: 'absolute', width: '600px', height: '600px', borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%)',
-          bottom: '-300px', left: '-100px', pointerEvents: 'none', filter: 'blur(80px)'
-        }}
-      />
-
-      {/* Navigation */}
-      <motion.nav 
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        style={{ 
-          width: '100%', padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 10
-        }}
-      >
-        <MenuBarLogo onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+      <section ref={containerRef} style={{ minHeight: '100vh', width: '100%', position: 'relative', overflow: 'hidden', paddingTop: '80px' }}>
+        <ParticleBackground />
         
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(14, 20, 33, 0.8)', padding: '6px', borderRadius: '100px', border: '1px solid rgba(47, 63, 97, 0.5)', backdropFilter: 'blur(10px)' }}>
-          {['Comparison', 'Features', 'Security', 'Roadmap'].map((item, i) => (
-            <motion.button 
-              key={item} 
-              onClick={() => {
-                const element = document.getElementById(item.toLowerCase());
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
-              whileHover={{ backgroundColor: 'rgba(61, 220, 151, 0.1)', scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              style={{ 
-                fontSize: '14px', 
-                fontWeight: 500, 
-                color: i === 0 ? '#3DDC97' : '#9AA6B2', 
-                background: 'transparent',
-                border: 'none',
-                textDecoration: 'none', 
-                padding: '8px 16px', 
-                borderRadius: '100px', 
-                transition: 'all 0.2s',
-                cursor: 'pointer'
-              }}>
-              {item}
-            </motion.button>
-          ))}
-        </div>
-        
-        <motion.button 
-          onClick={() => document.getElementById('quickstart')?.scrollIntoView({ behavior: 'smooth' })}
-          whileHover={{ scale: 1.05, boxShadow: '0 8px 30px rgba(34, 197, 94, 0.4)' }} 
-          whileTap={{ scale: 0.98 }}
+        {/* Animated gradient orbs */}
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           style={{
-            display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px',
-            background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)', color: '#FFFFFF',
-            fontWeight: 700, fontSize: '14px', borderRadius: '100px', border: 'none', cursor: 'pointer',
-            boxShadow: '0 4px 20px rgba(34, 197, 94, 0.3)'
-          }}>
-          Deploy Agent Me
-          <ChevronRight style={{ width: '16px', height: '16px' }} />
-        </motion.button>
-      </motion.nav>
+            position: 'absolute', width: '800px', height: '800px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(61, 220, 151, 0.15) 0%, transparent 70%)',
+            top: '-400px', right: '-200px', pointerEvents: 'none', filter: 'blur(60px)'
+          }}
+        />
+        <motion.div 
+          animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          style={{
+            position: 'absolute', width: '600px', height: '600px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%)',
+            bottom: '-300px', left: '-100px', pointerEvents: 'none', filter: 'blur(80px)'
+          }}
+        />
 
-      {/* Slider Hero Section */}
-      <SliderHero />
+        {/* Slider Hero Section */}
+        <SliderHero />
 
       {/* Main Content */}
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 80px', position: 'relative', zIndex: 5 }}>
@@ -705,6 +654,7 @@ const Hero = () => {
         </footer>
       </div>
     </section>
+  </>
   )
 }
 

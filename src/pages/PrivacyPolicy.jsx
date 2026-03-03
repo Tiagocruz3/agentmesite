@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
-import { MenuBarLogo } from '../components/SliderHero'
-import { Lock, Eye, Server, Shield, UserX, Cookie, Globe, Mail, ArrowLeft } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import SimpleNavbar from '../components/SimpleNavbar'
+import { Lock, Eye, Server, Shield, UserX, Cookie, Globe, Mail } from 'lucide-react'
 
 const PrivacyPolicy = () => {
   const sections = [

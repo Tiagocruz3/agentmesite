@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { MenuBarLogo } from '../components/SliderHero'
+import SimpleNavbar from '../components/SimpleNavbar'
 import { 
   BookOpen, 
   Download, 
@@ -13,8 +12,7 @@ import {
   Terminal,
   Copy,
   Check,
-  ExternalLink,
-  ArrowLeft
+  ExternalLink
 } from 'lucide-react'
 
 const docSections = [
@@ -626,45 +624,8 @@ const Docs = () => {
 
   return (
     <div style={{ minHeight: '100vh', background: '#0B0F17' }}>
-      {/* Navigation */}
-      <nav style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        padding: '20px 24px',
-        background: 'rgba(11, 15, 23, 0.9)',
-        backdropFilter: 'blur(10px)',
-        borderBottom: '1px solid rgba(47, 63, 97, 0.3)',
-        zIndex: 100
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <MenuBarLogo onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
-          </Link>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <motion.div
-              whileHover={{ x: -4 }}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '10px 18px',
-                background: 'rgba(47, 63, 97, 0.3)',
-                border: '1px solid rgba(47, 63, 97, 0.5)',
-                borderRadius: '100px',
-                color: '#9AA6B2',
-                fontSize: '14px',
-                fontWeight: 500,
-                cursor: 'pointer'
-              }}
-            >
-              <ArrowLeft style={{ width: '16px', height: '16px' }} />
-              Back to Home
-            </motion.div>
-          </Link>
-        </div>
-      </nav>
+      {/* Fixed Navbar */}
+      <SimpleNavbar />
 
       <div style={{ paddingTop: '100px', paddingBottom: '80px' }}>
         <motion.div 
