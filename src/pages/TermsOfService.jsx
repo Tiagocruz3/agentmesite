@@ -150,7 +150,7 @@ Last Updated: March 2026`
               style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
             >
               <img 
-                src="/logo.jpg" 
+                src="/logo.png" 
                 alt="Agent Me Logo" 
                 style={{
                   width: '40px', height: '40px', borderRadius: '12px',

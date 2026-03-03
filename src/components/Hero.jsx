@@ -30,6 +30,7 @@ import {
 import ComparisonCard from './ComparisonCard'
 import FeatureMatrix from './FeatureMatrix'
 import ParticleBackground from './ParticleBackground'
+import EnhancedHero from './EnhancedHero'
 
 const comparisonData = {
   agenteMe: {
@@ -160,7 +161,7 @@ const Hero = () => {
       >
         <motion.div whileHover={{ scale: 1.05 }} style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}>
           <img 
-            src="/logo.jpg" 
+            src="/logo.png" 
             alt="Agent Me Logo" 
             style={{
               width: '44px', height: '44px', borderRadius: '14px',
@@ -215,83 +216,12 @@ const Hero = () => {
         </motion.button>
       </motion.nav>
 
+      {/* Enhanced Hero Section */}
+      <EnhancedHero />
+
       {/* Main Content */}
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '40px 24px 80px', position: 'relative', zIndex: 5 }}>
         
-        {/* HERO SECTION */}
-        <div style={{ textAlign: 'center', marginBottom: '100px', maxWidth: '900px', margin: '0 auto 100px' }}>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} style={{ marginBottom: '24px' }}>
-            <span style={{
-              display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 20px',
-              background: 'linear-gradient(135deg, rgba(61, 220, 151, 0.1), rgba(139, 92, 246, 0.1))',
-              border: '1px solid rgba(61, 220, 151, 0.3)', borderRadius: '100px',
-              fontSize: '14px', fontWeight: 600, color: '#3DDC97'
-            }}>
-              <GitFork style={{ width: '16px', height: '16px' }} />
-              Built on OpenClaw. Refined for real operators.
-            </span>
-          </motion.div>
-
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-            style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-3px', marginBottom: '24px', lineHeight: 1.05, color: '#E6EDF7' }}>
-            Agent Me Server
-          </motion.h1>
-          
-          <motion.h2 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
-            style={{
-              fontSize: '32px', fontWeight: 600, marginBottom: '24px',
-              background: 'linear-gradient(135deg, #3DDC97 0%, #06B6D4 50%, #8B5CF6 100%)',
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'
-            }}>
-            Operator-First OpenClaw Control Plane
-          </motion.h2>
-
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
-            style={{ fontSize: '20px', color: '#9AA6B2', maxWidth: '600px', margin: '0 auto 40px', lineHeight: 1.6 }}>
-            Run chat, scheduling, channels, and workforce operations from one premium control surface.
-          </motion.p>
-
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
-            style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <motion.button 
-              onClick={() => document.getElementById('quickstart')?.scrollIntoView({ behavior: 'smooth' })}
-              whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(34, 197, 94, 0.4)' }} 
-              whileTap={{ scale: 0.98 }}
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '18px 36px',
-                background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)', color: '#FFFFFF',
-                fontWeight: 700, fontSize: '16px', borderRadius: '14px', border: 'none', cursor: 'pointer',
-                boxShadow: '0 4px 30px rgba(34, 197, 94, 0.3)'
-              }}>
-              <Zap style={{ width: '20px', height: '20px' }} />
-              Deploy Agent Me
-              <ArrowRight style={{ width: '18px', height: '18px' }} />
-            </motion.button>
-            <motion.a 
-              href="/docs"
-              whileHover={{ scale: 1.05, borderColor: '#3DDC97', color: '#3DDC97' }} 
-              whileTap={{ scale: 0.98 }}
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '18px 36px',
-                background: 'rgba(14, 20, 33, 0.6)', color: '#E6EDF7', fontWeight: 600,
-                fontSize: '16px', borderRadius: '14px', border: '1px solid #2F3F61', cursor: 'pointer', 
-                backdropFilter: 'blur(10px)', textDecoration: 'none'
-              }}>
-              <FileText style={{ width: '20px', height: '20px' }} />
-              Read Docs
-            </motion.a>
-            <motion.a href="https://github.com/Agentme-AI/Server" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05, borderColor: '#8B5CF6', color: '#8B5CF6' }} whileTap={{ scale: 0.98 }}
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '18px 36px',
-                background: 'transparent', color: '#9AA6B2', fontWeight: 600,
-                fontSize: '16px', borderRadius: '14px', border: '1px solid #2F3F61', cursor: 'pointer', textDecoration: 'none'
-              }}>
-              <GitFork style={{ width: '20px', height: '20px' }} />
-              View GitHub
-            </motion.a>
-          </motion.div>
-        </div>
-
         {/* WHY AGENT ME SERVER */}
         <div id="features" style={{ marginBottom: '120px' }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
@@ -766,7 +696,7 @@ const Hero = () => {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '24px' }}>
             <div style={{ width: '40px', height: '1px', background: 'linear-gradient(90deg, transparent, #2F3F61)' }} />
             <img 
-              src="/logo.jpg" 
+              src="/logo.png" 
               alt="Agent Me Logo" 
               style={{
                 width: '44px', height: '44px', borderRadius: '14px',
