@@ -164,9 +164,9 @@ const Hero = () => {
             src="/logo.png" 
             alt="Agent Me" 
             style={{
-              width: '160px', height: '48px', borderRadius: '12px',
+              width: '160px', height: '48px',
               objectFit: 'cover',
-              boxShadow: '0 4px 30px rgba(61, 220, 151, 0.4), 0 0 60px rgba(61, 220, 151, 0.2)'
+              background: 'transparent'
             }} 
           />
         </motion.div>
@@ -698,9 +698,9 @@ const Hero = () => {
               src="/logo.png" 
               alt="Agent Me" 
               style={{
-                width: '140px', height: '42px', borderRadius: '12px',
+                width: '140px', height: '42px',
                 objectFit: 'cover',
-                boxShadow: '0 4px 20px rgba(61, 220, 151, 0.3)'
+                background: 'transparent'
               }} 
             />
             <div style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, #2F3F61, transparent)' }} />

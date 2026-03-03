@@ -241,8 +241,9 @@ For security vulnerabilities, please use responsible disclosure and contact us p
                 src="/logo.png" 
                 alt="Agent Me" 
                 style={{
-                  width: '150px', height: '44px', borderRadius: '12px',
-                  objectFit: 'cover'
+                  width: '150px', height: '44px',
+                  objectFit: 'cover',
+                  background: 'transparent'
                 }} 
               />
             </motion.div>
