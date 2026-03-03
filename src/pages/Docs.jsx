@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { 
   BookOpen, 
   Download, 
@@ -11,7 +12,8 @@ import {
   Terminal,
   Copy,
   Check,
-  ExternalLink
+  ExternalLink,
+  ArrowLeft
 } from 'lucide-react'
 
 const docSections = [
@@ -622,42 +624,94 @@ const Docs = () => {
   }
 
   return (
-    <div id="docs" style={{ marginBottom: '120px' }}>
-      <motion.div 
-        initial={{ opacity: 0, y: 40 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true }} 
-        transition={{ duration: 0.6 }}
-        style={{ textAlign: 'center', marginBottom: '48px' }}
-      >
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '8px 16px',
-            background: 'linear-gradient(135deg, rgba(61, 220, 151, 0.15), rgba(61, 220, 151, 0.05))',
-            border: '1px solid rgba(61, 220, 151, 0.3)',
-            borderRadius: '100px',
-            marginBottom: '16px'
-          }}
-        >
-          <BookOpen style={{ width: '16px', height: '16px', color: '#3DDC97' }} />
-          <span style={{ fontSize: '13px', fontWeight: 600, color: '#3DDC97', textTransform: 'uppercase', letterSpacing: '1px' }}>Documentation</span>
-        </motion.div>
-        <h2 style={{ fontSize: '42px', fontWeight: 800, color: '#E6EDF7', marginBottom: '12px' }}>
-          Learn <span style={{ color: '#3DDC97' }}>AgentMe</span>
-        </h2>
-        <p style={{ fontSize: '18px', color: '#9AA6B2', maxWidth: '600px', margin: '0 auto' }}>
-          Everything you need to deploy, configure, and master your AI agent platform.
-        </p>
-      </motion.div>
+    <div style={{ minHeight: '100vh', background: '#0B0F17' }}>
+      {/* Navigation */}
+      <nav style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        padding: '20px 24px',
+        background: 'rgba(11, 15, 23, 0.9)',
+        backdropFilter: 'blur(10px)',
+        borderBottom: '1px solid rgba(47, 63, 97, 0.3)',
+        zIndex: 100
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
+            >
+              <img 
+                src="/logo.jpg" 
+                alt="Agent Me Logo" 
+                style={{
+                  width: '40px', height: '40px', borderRadius: '12px',
+                  objectFit: 'cover'
+                }} 
+              />
+              <span style={{ fontSize: '20px', fontWeight: 800, color: '#E6EDF7' }}>Agent Me</span>
+            </motion.div>
+          </Link>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <motion.div
+              whileHover={{ x: -4 }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '10px 18px',
+                background: 'rgba(47, 63, 97, 0.3)',
+                border: '1px solid rgba(47, 63, 97, 0.5)',
+                borderRadius: '100px',
+                color: '#9AA6B2',
+                fontSize: '14px',
+                fontWeight: 500,
+                cursor: 'pointer'
+              }}
+            >
+              <ArrowLeft style={{ width: '16px', height: '16px' }} />
+              Back to Home
+            </motion.div>
+          </Link>
+        </div>
+      </nav>
 
-      <div style={{ display: 'flex', gap: '24px', maxWidth: '1200px', margin: '0 auto' }}>
+      <div style={{ paddingTop: '100px', paddingBottom: '80px' }}>
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.6 }}
+          style={{ textAlign: 'center', marginBottom: '48px', padding: '40px 24px 0' }}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '8px 16px',
+              background: 'linear-gradient(135deg, rgba(61, 220, 151, 0.15), rgba(61, 220, 151, 0.05))',
+              border: '1px solid rgba(61, 220, 151, 0.3)',
+              borderRadius: '100px',
+              marginBottom: '16px'
+            }}
+          >
+            <BookOpen style={{ width: '16px', height: '16px', color: '#3DDC97' }} />
+            <span style={{ fontSize: '13px', fontWeight: 600, color: '#3DDC97', textTransform: 'uppercase', letterSpacing: '1px' }}>Documentation</span>
+          </motion.div>
+          <h1 style={{ fontSize: '48px', fontWeight: 800, color: '#E6EDF7', marginBottom: '12px' }}>
+            Learn <span style={{ color: '#3DDC97' }}>AgentMe</span>
+          </h1>
+          <p style={{ fontSize: '18px', color: '#9AA6B2', maxWidth: '600px', margin: '0 auto' }}>
+            Everything you need to deploy, configure, and master your AI agent platform.
+          </p>
+        </motion.div>
+
+        <div style={{ display: 'flex', gap: '24px', maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
         {/* Sidebar */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -673,7 +727,7 @@ const Docs = () => {
             padding: '16px',
             height: 'fit-content',
             position: 'sticky',
-            top: '100px'
+            top: '120px'
           }}
         >
           {docSections.map((section) => {
@@ -735,8 +789,7 @@ const Docs = () => {
         {/* Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           style={{
             flex: 1,
@@ -759,6 +812,7 @@ const Docs = () => {
             </motion.div>
           </AnimatePresence>
         </motion.div>
+      </div>
       </div>
     </div>
   )

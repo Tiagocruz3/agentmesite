@@ -30,7 +30,6 @@ import {
 import ComparisonCard from './ComparisonCard'
 import FeatureMatrix from './FeatureMatrix'
 import ParticleBackground from './ParticleBackground'
-import Docs from './Docs'
 
 const comparisonData = {
   agenteMe: {
@@ -173,7 +172,7 @@ const Hero = () => {
         </motion.div>
         
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(14, 20, 33, 0.8)', padding: '6px', borderRadius: '100px', border: '1px solid rgba(47, 63, 97, 0.5)', backdropFilter: 'blur(10px)' }}>
-          {['Comparison', 'Features', 'Security', 'Docs', 'Roadmap'].map((item, i) => (
+          {['Comparison', 'Features', 'Security', 'Roadmap'].map((item, i) => (
             <motion.button 
               key={item} 
               onClick={() => {
@@ -622,9 +621,6 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* DOCS */}
-        <Docs />
-
         {/* ROADMAP */}
         <div id="roadmap" style={{ marginBottom: '120px' }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
@@ -736,11 +732,8 @@ const Hero = () => {
               style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
               Telegram
             </motion.a>
-            <motion.a href="#docs" onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('docs')?.scrollIntoView({ behavior: 'smooth' });
-            }} whileHover={{ color: '#3DDC97' }}
-              style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s', cursor: 'pointer' }}>
+            <motion.a href="/docs" whileHover={{ color: '#3DDC97' }}
+              style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
               Documentation
             </motion.a>
           </div>

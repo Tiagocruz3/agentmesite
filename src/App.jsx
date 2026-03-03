@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Hero from './components/Hero'
+import Docs from './pages/Docs'
 import TermsOfService from './pages/TermsOfService'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import './styles/index.css'
@@ -19,6 +20,7 @@ function App() {
               <Hero />
             </>
           } />
+          <Route path="/docs" element={<Docs />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
