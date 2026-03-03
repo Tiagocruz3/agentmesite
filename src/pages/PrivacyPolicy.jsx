@@ -235,17 +235,16 @@ For security vulnerabilities, please use responsible disclosure and contact us p
           <Link to="/" style={{ textDecoration: 'none' }}>
             <motion.div 
               whileHover={{ scale: 1.05 }}
-              style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
+              style={{ display: 'flex', alignItems: 'center' }}
             >
               <img 
                 src="/logo.png" 
-                alt="Agent Me Logo" 
+                alt="Agent Me" 
                 style={{
-                  width: '40px', height: '40px', borderRadius: '12px',
+                  width: '150px', height: '44px', borderRadius: '12px',
                   objectFit: 'cover'
                 }} 
               />
-              <span style={{ fontSize: '20px', fontWeight: 800, color: '#E6EDF7' }}>Agent Me</span>
             </motion.div>
           </Link>
           <Link to="/" style={{ textDecoration: 'none' }}>

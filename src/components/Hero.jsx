@@ -159,17 +159,16 @@ const Hero = () => {
           maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 10
         }}
       >
-        <motion.div whileHover={{ scale: 1.05 }} style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}>
+        <motion.div whileHover={{ scale: 1.05 }} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
           <img 
             src="/logo.png" 
-            alt="Agent Me Logo" 
+            alt="Agent Me" 
             style={{
-              width: '44px', height: '44px', borderRadius: '14px',
+              width: '160px', height: '48px', borderRadius: '12px',
               objectFit: 'cover',
               boxShadow: '0 4px 30px rgba(61, 220, 151, 0.4), 0 0 60px rgba(61, 220, 151, 0.2)'
             }} 
           />
-          <span style={{ fontSize: '22px', fontWeight: 800, color: '#E6EDF7', letterSpacing: '-0.5px' }}>Agent Me</span>
         </motion.div>
         
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(14, 20, 33, 0.8)', padding: '6px', borderRadius: '100px', border: '1px solid rgba(47, 63, 97, 0.5)', backdropFilter: 'blur(10px)' }}>
@@ -694,17 +693,17 @@ const Hero = () => {
             </motion.a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '24px' }}>
-            <div style={{ width: '40px', height: '1px', background: 'linear-gradient(90deg, transparent, #2F3F61)' }} />
+            <div style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, transparent, #2F3F61)' }} />
             <img 
               src="/logo.png" 
-              alt="Agent Me Logo" 
+              alt="Agent Me" 
               style={{
-                width: '44px', height: '44px', borderRadius: '14px',
+                width: '140px', height: '42px', borderRadius: '12px',
                 objectFit: 'cover',
                 boxShadow: '0 4px 20px rgba(61, 220, 151, 0.3)'
               }} 
             />
-            <div style={{ width: '40px', height: '1px', background: 'linear-gradient(90deg, #2F3F61, transparent)' }} />
+            <div style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, #2F3F61, transparent)' }} />
           </div>
           <p style={{ color: '#9AA6B2', fontSize: '14px', lineHeight: 1.8 }}>
             Built with precision.<br />
