@@ -200,7 +200,10 @@ const Hero = () => {
           ))}
         </div>
         
-        <motion.button whileHover={{ scale: 1.05, boxShadow: '0 8px 30px rgba(34, 197, 94, 0.4)' }} whileTap={{ scale: 0.98 }}
+        <motion.button 
+          onClick={() => document.getElementById('quickstart')?.scrollIntoView({ behavior: 'smooth' })}
+          whileHover={{ scale: 1.05, boxShadow: '0 8px 30px rgba(34, 197, 94, 0.4)' }} 
+          whileTap={{ scale: 0.98 }}
           style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px',
             background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)', color: '#FFFFFF',
@@ -250,7 +253,10 @@ const Hero = () => {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
             style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <motion.button whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(34, 197, 94, 0.4)' }} whileTap={{ scale: 0.98 }}
+            <motion.button 
+              onClick={() => document.getElementById('quickstart')?.scrollIntoView({ behavior: 'smooth' })}
+              whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(34, 197, 94, 0.4)' }} 
+              whileTap={{ scale: 0.98 }}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '18px 36px',
                 background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)', color: '#FFFFFF',
@@ -261,15 +267,19 @@ const Hero = () => {
               Deploy Agent Me
               <ArrowRight style={{ width: '18px', height: '18px' }} />
             </motion.button>
-            <motion.button whileHover={{ scale: 1.05, borderColor: '#3DDC97', color: '#3DDC97' }} whileTap={{ scale: 0.98 }}
+            <motion.a 
+              href="/docs"
+              whileHover={{ scale: 1.05, borderColor: '#3DDC97', color: '#3DDC97' }} 
+              whileTap={{ scale: 0.98 }}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '18px 36px',
                 background: 'rgba(14, 20, 33, 0.6)', color: '#E6EDF7', fontWeight: 600,
-                fontSize: '16px', borderRadius: '14px', border: '1px solid #2F3F61', cursor: 'pointer', backdropFilter: 'blur(10px)'
+                fontSize: '16px', borderRadius: '14px', border: '1px solid #2F3F61', cursor: 'pointer', 
+                backdropFilter: 'blur(10px)', textDecoration: 'none'
               }}>
               <FileText style={{ width: '20px', height: '20px' }} />
               Read Docs
-            </motion.button>
+            </motion.a>
             <motion.a href="https://github.com/Agentme-AI/Server" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05, borderColor: '#8B5CF6', color: '#8B5CF6' }} whileTap={{ scale: 0.98 }}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '18px 36px',
@@ -323,7 +333,7 @@ const Hero = () => {
         </div>
 
         {/* QUICK START */}
-        <div style={{ marginBottom: '120px' }}>
+        <div id="quickstart" style={{ marginBottom: '120px' }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             style={{ textAlign: 'center', marginBottom: '48px' }}>
             <h2 style={{ fontSize: '42px', fontWeight: 800, color: '#E6EDF7', marginBottom: '12px' }}>Quick Start</h2>
@@ -690,7 +700,10 @@ const Hero = () => {
               Join the teams building on Agent Me Server today.
             </p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
-              <motion.button whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(34, 197, 94, 0.4)' }} whileTap={{ scale: 0.98 }}
+              <motion.button 
+                onClick={() => document.getElementById('quickstart')?.scrollIntoView({ behavior: 'smooth' })}
+                whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(34, 197, 94, 0.4)' }} 
+                whileTap={{ scale: 0.98 }}
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '18px 36px',
                   background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)', color: '#FFFFFF',
