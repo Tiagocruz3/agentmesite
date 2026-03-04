@@ -177,7 +177,7 @@ const Slide = ({ slide, isActive }) => {
         flexDirection: 'column',
         alignItems: 'center',
         width: '100%',
-        padding: '0 20px',
+        padding: '0 24px',
       }}
     >
       {/* Badge */}
@@ -185,7 +185,7 @@ const Slide = ({ slide, isActive }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        style={{ marginBottom: '30px' }}
+        style={{ marginBottom: '32px' }}
       >
         <div style={{
           display: 'flex',
@@ -216,11 +216,11 @@ const Slide = ({ slide, isActive }) => {
         </div>
       </motion.div>
 
-      {/* Main Content Grid - Responsive */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-        gap: '40px',
+      {/* Main Content - Two Column Layout */}
+      <div className="slide-grid" style={{
+        display: 'flex',
+        flexDirection: 'row',
+        gap: '48px',
         alignItems: 'center',
         maxWidth: '1200px',
         width: '100%',
@@ -230,10 +230,11 @@ const Slide = ({ slide, isActive }) => {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
-          style={{ textAlign: 'left' }}
+          className="slide-text"
+          style={{ flex: '1 1 50%', textAlign: 'left', minWidth: 0 }}
         >
           <h1 style={{
-            fontSize: 'clamp(36px, 5vw, 56px)',
+            fontSize: 'clamp(30px, 4.5vw, 56px)',
             fontWeight: 900,
             lineHeight: 1.1,
             color: '#E6EDF7',
@@ -250,10 +251,10 @@ const Slide = ({ slide, isActive }) => {
           </h1>
           
           <p style={{
-            fontSize: 'clamp(16px, 2vw, 18px)',
+            fontSize: 'clamp(15px, 1.8vw, 18px)',
             color: '#9AA6B2',
             lineHeight: 1.6,
-            marginBottom: '30px',
+            marginBottom: '28px',
             maxWidth: '500px',
           }}>
             {slide.subheadline}
@@ -269,8 +270,7 @@ const Slide = ({ slide, isActive }) => {
               onClick={() => {
                 const el = document.getElementById('quickstart')
                 if (el) {
-                  const navHeight = 80
-                  const top = el.getBoundingClientRect().top + window.scrollY - navHeight
+                  const top = el.getBoundingClientRect().top + window.scrollY - 80
                   window.scrollTo({ top, behavior: 'smooth' })
                 }
               }}
@@ -319,16 +319,16 @@ const Slide = ({ slide, isActive }) => {
           </div>
         </motion.div>
 
-        {/* Right: Image */}
+        {/* Right: Slide Image */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3 }}
+          className="slide-image"
           style={{
+            flex: '1 1 50%',
             position: 'relative',
-            width: '100%',
-            maxWidth: '600px',
-            margin: '0 auto',
+            minWidth: 0,
           }}
         >
           <motion.div
@@ -337,6 +337,7 @@ const Slide = ({ slide, isActive }) => {
               inset: '-20px',
               background: 'radial-gradient(ellipse at center, rgba(61, 220, 151, 0.15) 0%, transparent 70%)',
               filter: 'blur(30px)',
+              pointerEvents: 'none',
             }}
             animate={{ opacity: [0.5, 0.8, 0.5] }}
             transition={{ duration: 3, repeat: Infinity }}
@@ -371,20 +372,22 @@ const Slide = ({ slide, isActive }) => {
         style={{
           display: 'flex',
           justifyContent: 'center',
-          gap: 'clamp(30px, 5vw, 60px)',
+          gap: 'clamp(24px, 5vw, 60px)',
           flexWrap: 'wrap',
-          marginTop: '50px',
-          padding: '24px 40px',
+          marginTop: '40px',
+          padding: '20px 32px',
           background: 'rgba(14, 20, 33, 0.6)',
           border: '1px solid rgba(47, 63, 97, 0.3)',
           borderRadius: '16px',
           backdropFilter: 'blur(10px)',
+          width: '100%',
+          maxWidth: '1200px',
         }}
       >
         {slide.stats.map((stat, idx) => (
           <div key={idx} style={{ textAlign: 'center' }}>
             <div style={{
-              fontSize: 'clamp(24px, 3vw, 32px)',
+              fontSize: 'clamp(22px, 3vw, 32px)',
               fontWeight: 800,
               background: 'linear-gradient(135deg, #3DDC97, #22C55E)',
               WebkitBackgroundClip: 'text',
@@ -429,7 +432,7 @@ const SliderHero = () => {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      padding: '100px 0 80px',
+      padding: '90px 0 40px',
       background: 'linear-gradient(180deg, #0B0F17 0%, #0E1421 50%, #0B0F17 100%)',
       overflow: 'hidden',
     }}>
@@ -535,7 +538,7 @@ const SliderHero = () => {
           display: 'flex',
           justifyContent: 'center',
           gap: '10px',
-          marginTop: '40px',
+          marginTop: '20px',
         }}>
           {slides.map((_, idx) => (
             <motion.button
@@ -556,38 +559,34 @@ const SliderHero = () => {
             />
           ))}
         </div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        style={{
-          position: 'absolute',
-          bottom: '30px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '8px',
-          cursor: 'pointer',
-        }}
-        onClick={() => {
-          const el = document.getElementById('features')
-          if (el) {
-            const navHeight = 80
-            const top = el.getBoundingClientRect().top + window.scrollY - navHeight
-            window.scrollTo({ top, behavior: 'smooth' })
-          }
-        }}
-      >
-        <span style={{ fontSize: '12px', color: '#9AA6B2' }}>Scroll</span>
-        <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-          <ChevronDown style={{ width: '24px', height: '24px', color: '#3DDC97' }} />
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '4px',
+            marginTop: '24px',
+            cursor: 'pointer',
+          }}
+          onClick={() => {
+            const el = document.getElementById('features')
+            if (el) {
+              const top = el.getBoundingClientRect().top + window.scrollY - 80
+              window.scrollTo({ top, behavior: 'smooth' })
+            }
+          }}
+        >
+          <span style={{ fontSize: '12px', color: '#9AA6B2' }}>Scroll</span>
+          <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+            <ChevronDown style={{ width: '24px', height: '24px', color: '#3DDC97' }} />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }

@@ -243,6 +243,34 @@ body {
   min-height: 100vh;
 }
 
+/* Slide grid responsive */
+@media (max-width: 860px) {
+  .slide-grid {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+
+  .slide-text {
+    flex: 1 1 auto !important;
+    text-align: center !important;
+  }
+
+  .slide-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .slide-text div {
+    justify-content: center;
+  }
+
+  .slide-image {
+    flex: 1 1 auto !important;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
 /* Mobile responsive fixes */
 @media (max-width: 767px) {
   html {
