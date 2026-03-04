@@ -1,5 +1,5 @@
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { MenuBarLogo } from './SliderHero'
 import { Menu, X, ArrowUp } from 'lucide-react'
 
@@ -14,6 +14,15 @@ const Navbar = () => {
     setShowBackToTop(latest > 400)
   })
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [isMobileMenuOpen])
+
   const navItems = ['Comparison', 'Features', 'Security', 'Roadmap']
 
   const scrollToSection = (id) => {
@@ -25,7 +34,7 @@ const Navbar = () => {
         const elementTop = element.getBoundingClientRect().top + window.scrollY - navHeight
         window.scrollTo({ top: elementTop, behavior: 'smooth' })
       }
-    }, 50)
+    }, 350)
   }
 
   return (
@@ -41,14 +50,14 @@ const Navbar = () => {
           top: 0,
           left: 0,
           right: 0,
-          zIndex: 1000,
+          zIndex: 1001,
           height: '72px',
           padding: '0 24px',
           background: isScrolled ? 'rgba(11, 15, 23, 0.97)' : 'rgba(11, 15, 23, 0.7)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           borderBottom: isScrolled ? '1px solid rgba(47, 63, 97, 0.3)' : '1px solid transparent',
-          transition: 'all 0.3s ease',
+          transition: 'background 0.3s ease, border-bottom 0.3s ease',
         }}
       >
         <div style={{
@@ -61,15 +70,12 @@ const Navbar = () => {
         }}>
           {/* Logo */}
           <div style={{ height: '100%', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
-            <MenuBarLogo onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+            <MenuBarLogo onClick={() => { setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }} />
           </div>
 
           {/* Desktop Navigation */}
           <div style={{
             display: 'none',
-            '@media (min-width: 768px)': {
-              display: 'flex',
-            },
             alignItems: 'center',
             gap: '8px',
             background: 'rgba(14, 20, 33, 0.8)',
@@ -108,9 +114,6 @@ const Navbar = () => {
             whileTap={{ scale: 0.98 }}
             style={{
               display: 'none',
-              '@media (min-width: 768px)': {
-                display: 'inline-flex',
-              },
               alignItems: 'center',
               gap: '8px',
               padding: '12px 24px',
@@ -135,93 +138,131 @@ const Navbar = () => {
             whileTap={{ scale: 0.9 }}
             style={{
               display: 'flex',
-              '@media (min-width: 768px)': {
-                display: 'none',
-              },
-              width: '44px',
-              height: '44px',
-              borderRadius: '12px',
-              background: 'rgba(14, 20, 33, 0.8)',
-              border: '1px solid rgba(47, 63, 97, 0.5)',
+              width: '48px',
+              height: '48px',
+              borderRadius: '14px',
+              background: isMobileMenuOpen ? 'rgba(61, 220, 151, 0.15)' : 'rgba(14, 20, 33, 0.8)',
+              border: isMobileMenuOpen ? '1px solid rgba(61, 220, 151, 0.3)' : '1px solid rgba(47, 63, 97, 0.5)',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#E6EDF7',
+              color: isMobileMenuOpen ? '#3DDC97' : '#E6EDF7',
               cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              WebkitTapHighlightColor: 'transparent',
             }} className="mobile-menu-btn"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={isMobileMenuOpen ? 'close' : 'open'}
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.15 }}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              </motion.div>
+            </AnimatePresence>
           </motion.button>
         </div>
       </motion.nav>
 
       {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(11, 15, 23, 0.98)',
-            backdropFilter: 'blur(20px)',
-            zIndex: 999,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '20px',
-            padding: '80px 24px',
-          }}
-        >
-          {navItems.map((item, i) => (
-            <motion.button
-              key={item}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              onClick={() => scrollToSection(item)}
-              style={{
-                fontSize: '24px',
-                fontWeight: 600,
-                color: '#E6EDF7',
-                background: 'transparent',
-                border: 'none',
-                padding: '12px 24px',
-                cursor: 'pointer',
-              }}
-            >
-              {item}
-            </motion.button>
-          ))}
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            onClick={() => scrollToSection('quickstart')}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
             style={{
-              marginTop: '20px',
-              padding: '16px 32px',
-              background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)',
-              color: '#FFFFFF',
-              fontWeight: 700,
-              fontSize: '16px',
-              borderRadius: '100px',
-              border: 'none',
-              cursor: 'pointer',
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'rgba(11, 15, 23, 0.98)',
+              backdropFilter: 'blur(24px)',
+              WebkitBackdropFilter: 'blur(24px)',
+              zIndex: 1000,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              padding: '100px 32px 60px',
+              overflowY: 'auto',
+              WebkitTapHighlightColor: 'transparent',
             }}
           >
-            Get Started
-          </motion.button>
-        </motion.div>
-      )}
+            {navItems.map((item, i) => (
+              <motion.button
+                key={item}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ delay: i * 0.07, duration: 0.3 }}
+                onClick={() => scrollToSection(item)}
+                whileTap={{ scale: 0.95, backgroundColor: 'rgba(61, 220, 151, 0.08)' }}
+                style={{
+                  fontSize: '22px',
+                  fontWeight: 600,
+                  color: '#E6EDF7',
+                  background: 'transparent',
+                  border: 'none',
+                  padding: '18px 40px',
+                  cursor: 'pointer',
+                  borderRadius: '16px',
+                  width: '100%',
+                  maxWidth: '320px',
+                  textAlign: 'center',
+                  WebkitTapHighlightColor: 'transparent',
+                  transition: 'background 0.15s ease',
+                }}
+              >
+                {item}
+              </motion.button>
+            ))}
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ delay: 0.3, duration: 0.3 }}
+              style={{ width: '100%', maxWidth: '320px', marginTop: '16px' }}
+            >
+              <div style={{
+                height: '1px',
+                background: 'linear-gradient(90deg, transparent, rgba(47, 63, 97, 0.5), transparent)',
+                marginBottom: '24px',
+              }} />
+              <motion.button
+                onClick={() => scrollToSection('quickstart')}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  width: '100%',
+                  padding: '18px 32px',
+                  background: 'linear-gradient(135deg, #22C55E 0%, #3DDC97 100%)',
+                  color: '#FFFFFF',
+                  fontWeight: 700,
+                  fontSize: '17px',
+                  borderRadius: '16px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  boxShadow: '0 8px 30px rgba(61, 220, 151, 0.3)',
+                  WebkitTapHighlightColor: 'transparent',
+                }}
+              >
+                Get Started
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Back to Top Button */}
       <AnimatePresence>
-        {showBackToTop && (
+        {showBackToTop && !isMobileMenuOpen && (
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -243,8 +284,9 @@ const Navbar = () => {
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
-              zIndex: 1000,
+              zIndex: 1002,
               boxShadow: '0 4px 20px rgba(61, 220, 151, 0.4)',
+              WebkitTapHighlightColor: 'transparent',
             }}
           >
             <ArrowUp size={22} />
