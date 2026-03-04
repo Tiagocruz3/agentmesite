@@ -1,25 +1,31 @@
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { MenuBarLogo } from './SliderHero'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ArrowUp } from 'lucide-react'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [showBackToTop, setShowBackToTop] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50)
+    setShowBackToTop(latest > 400)
   })
 
   const navItems = ['Comparison', 'Features', 'Security', 'Roadmap']
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id.toLowerCase())
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
     setIsMobileMenuOpen(false)
+    setTimeout(() => {
+      const element = document.getElementById(id.toLowerCase())
+      if (element) {
+        const navHeight = 80
+        const elementTop = element.getBoundingClientRect().top + window.scrollY - navHeight
+        window.scrollTo({ top: elementTop, behavior: 'smooth' })
+      }
+    }, 50)
   }
 
   return (
@@ -34,10 +40,11 @@ const Navbar = () => {
           left: 0,
           right: 0,
           zIndex: 1000,
-          padding: '16px 24px',
-          background: isScrolled ? 'rgba(11, 15, 23, 0.95)' : 'transparent',
-          backdropFilter: isScrolled ? 'blur(20px)' : 'none',
-          borderBottom: isScrolled ? '1px solid rgba(47, 63, 97, 0.3)' : 'none',
+          padding: '12px 24px',
+          background: isScrolled ? 'rgba(11, 15, 23, 0.97)' : 'rgba(11, 15, 23, 0.7)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderBottom: isScrolled ? '1px solid rgba(47, 63, 97, 0.3)' : '1px solid transparent',
           transition: 'all 0.3s ease',
         }}
       >
@@ -203,6 +210,39 @@ const Navbar = () => {
           </motion.button>
         </motion.div>
       )}
+
+      {/* Back to Top Button */}
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            style={{
+              position: 'fixed',
+              bottom: '30px',
+              right: '30px',
+              width: '50px',
+              height: '50px',
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #22C55E, #3DDC97)',
+              border: 'none',
+              color: '#0B0F17',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 1000,
+              boxShadow: '0 4px 20px rgba(61, 220, 151, 0.4)',
+            }}
+          >
+            <ArrowUp size={22} />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       {/* CSS for responsive behavior */}
       <style>{`

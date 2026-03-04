@@ -29,16 +29,15 @@ export const MenuBarLogo = ({ onClick }) => (
       display: 'flex', 
       alignItems: 'center', 
       cursor: 'pointer',
-      // COMPLETELY INDEPENDENT - doesn't affect hero
     }}
   >
     <img 
       src="/logo.png" 
       alt="Agent Me" 
       style={{
-        width: 'clamp(120px, 18vw, 200px)', // Responsive but independent
+        width: 'clamp(160px, 20vw, 240px)',
         height: 'auto',
-        maxHeight: '48px',
+        maxHeight: '64px',
         objectFit: 'contain',
         background: 'transparent',
         display: 'block',
@@ -220,7 +219,7 @@ const Slide = ({ slide, isActive }) => {
       {/* Main Content Grid - Responsive */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
         gap: '40px',
         alignItems: 'center',
         maxWidth: '1200px',
@@ -267,7 +266,14 @@ const Slide = ({ slide, isActive }) => {
             flexWrap: 'wrap',
           }}>
             <motion.button 
-              onClick={() => document.getElementById('quickstart')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => {
+                const el = document.getElementById('quickstart')
+                if (el) {
+                  const navHeight = 80
+                  const top = el.getBoundingClientRect().top + window.scrollY - navHeight
+                  window.scrollTo({ top, behavior: 'smooth' })
+                }
+              }}
               whileHover={{ scale: 1.05 }} 
               whileTap={{ scale: 0.98 }}
               style={{
@@ -318,8 +324,42 @@ const Slide = ({ slide, isActive }) => {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3 }}
+          style={{
+            position: 'relative',
+            width: '100%',
+            maxWidth: '600px',
+            margin: '0 auto',
+          }}
         >
-          <HeroLogo />
+          <motion.div
+            style={{
+              position: 'absolute',
+              inset: '-20px',
+              background: 'radial-gradient(ellipse at center, rgba(61, 220, 151, 0.15) 0%, transparent 70%)',
+              filter: 'blur(30px)',
+            }}
+            animate={{ opacity: [0.5, 0.8, 0.5] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          />
+          <motion.div
+            style={{
+              position: 'relative',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+            }}
+            whileHover={{ scale: 1.02 }}
+          >
+            <img 
+              src={slide.image} 
+              alt={slide.headline} 
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+              }}
+            />
+          </motion.div>
         </motion.div>
       </div>
 
@@ -440,15 +480,11 @@ const SliderHero = () => {
         </AnimatePresence>
 
         {/* Navigation Arrows */}
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '20px',
-          right: '20px',
+        <div className="slider-arrows" style={{
           display: 'flex',
-          justifyContent: 'space-between',
-          transform: 'translateY(-50%)',
-          pointerEvents: 'none',
+          justifyContent: 'center',
+          gap: '16px',
+          marginTop: '24px',
           zIndex: 20,
         }}>
           <motion.button
@@ -456,8 +492,8 @@ const SliderHero = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             style={{
-              width: '50px',
-              height: '50px',
+              width: '44px',
+              height: '44px',
               borderRadius: '50%',
               background: 'rgba(14, 20, 33, 0.8)',
               border: '1px solid rgba(47, 63, 97, 0.5)',
@@ -466,11 +502,10 @@ const SliderHero = () => {
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
-              pointerEvents: 'auto',
               backdropFilter: 'blur(10px)',
             }}
           >
-            <ArrowLeft style={{ width: '20px', height: '20px' }} />
+            <ArrowLeft style={{ width: '18px', height: '18px' }} />
           </motion.button>
           
           <motion.button
@@ -478,8 +513,8 @@ const SliderHero = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             style={{
-              width: '50px',
-              height: '50px',
+              width: '44px',
+              height: '44px',
               borderRadius: '50%',
               background: 'rgba(14, 20, 33, 0.8)',
               border: '1px solid rgba(47, 63, 97, 0.5)',
@@ -488,11 +523,10 @@ const SliderHero = () => {
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
-              pointerEvents: 'auto',
               backdropFilter: 'blur(10px)',
             }}
           >
-            <ArrowRight style={{ width: '20px', height: '20px' }} />
+            <ArrowRight style={{ width: '18px', height: '18px' }} />
           </motion.button>
         </div>
 
@@ -540,7 +574,14 @@ const SliderHero = () => {
           gap: '8px',
           cursor: 'pointer',
         }}
-        onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => {
+          const el = document.getElementById('features')
+          if (el) {
+            const navHeight = 80
+            const top = el.getBoundingClientRect().top + window.scrollY - navHeight
+            window.scrollTo({ top, behavior: 'smooth' })
+          }
+        }}
       >
         <span style={{ fontSize: '12px', color: '#9AA6B2' }}>Scroll</span>
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>

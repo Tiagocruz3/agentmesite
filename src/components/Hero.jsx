@@ -164,7 +164,7 @@ const Hero = () => {
         <div id="features" style={{ marginBottom: '120px' }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <h2 style={{ fontSize: '48px', fontWeight: 800, color: '#E6EDF7', marginBottom: '16px' }}>
+            <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 800, color: '#E6EDF7', marginBottom: '16px' }}>
               Why <span style={{ color: '#3DDC97' }}>Agent Me Server</span>
             </h2>
             <p style={{ fontSize: '18px', color: '#9AA6B2', maxWidth: '600px', margin: '0 auto' }}>
@@ -172,7 +172,7 @@ const Hero = () => {
             </p>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '24px' }}>
             {whyFeatures.map((feature, idx) => {
               const Icon = feature.icon
               return (
@@ -204,7 +204,7 @@ const Hero = () => {
         <div id="quickstart" style={{ marginBottom: '120px' }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <h2 style={{ fontSize: '42px', fontWeight: 800, color: '#E6EDF7', marginBottom: '12px' }}>Quick Start</h2>
+            <h2 style={{ fontSize: 'clamp(26px, 5vw, 42px)', fontWeight: 800, color: '#E6EDF7', marginBottom: '12px' }}>Quick Start</h2>
             <p style={{ fontSize: '18px', color: '#9AA6B2' }}>Get up and running in seconds</p>
           </motion.div>
 
@@ -263,13 +263,13 @@ const Hero = () => {
         <div id="comparison" style={{ marginBottom: '120px' }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <h2 style={{ fontSize: '42px', fontWeight: 800, color: '#E6EDF7', marginBottom: '12px' }}>
+            <h2 style={{ fontSize: 'clamp(26px, 5vw, 42px)', fontWeight: 800, color: '#E6EDF7', marginBottom: '12px' }}>
               Side-by-Side: <span style={{ color: '#3DDC97' }}>Agent Me Server</span> vs <span style={{ color: '#8B5CF6' }}>OpenClaw</span>
             </h2>
             <p style={{ fontSize: '18px', color: '#9AA6B2' }}>Choose the right fit for your use case</p>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '32px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))', gap: '32px' }}>
             <ComparisonCard data={comparisonData.agenteMe} />
             <ComparisonCard data={comparisonData.openClaw} />
           </div>
@@ -284,12 +284,12 @@ const Hero = () => {
         <div style={{ marginBottom: '120px' }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <h2 style={{ fontSize: '42px', fontWeight: 800, color: '#E6EDF7', marginBottom: '12px' }}>
+            <h2 style={{ fontSize: 'clamp(26px, 5vw, 42px)', fontWeight: 800, color: '#E6EDF7', marginBottom: '12px' }}>
               Who should choose what?
             </h2>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '32px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', gap: '32px' }}>
             {/* Agent Me */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
               style={{
@@ -306,7 +306,7 @@ const Hero = () => {
                 }}>
                   <Target style={{ width: '24px', height: '24px', color: '#0B0F17' }} />
                 </div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, color: '#E6EDF7' }}>Choose Agent Me Server if you want:</h3>
+                <h3 style={{ fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 800, color: '#E6EDF7' }}>Choose Agent Me Server if you want:</h3>
               </div>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 {[
@@ -340,7 +340,7 @@ const Hero = () => {
                 }}>
                   <Shield style={{ width: '24px', height: '24px', color: 'white' }} />
                 </div>
-                <h3 style={{ fontSize: '24px', fontWeight: 800, color: '#E6EDF7' }}>Choose OpenClaw if you want:</h3>
+                <h3 style={{ fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 800, color: '#E6EDF7' }}>Choose OpenClaw if you want:</h3>
               </div>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 {[
@@ -383,7 +383,7 @@ const Hero = () => {
               <ShieldCheck style={{ width: '16px', height: '16px', color: '#3DDC97' }} />
               <span style={{ fontSize: '13px', fontWeight: 600, color: '#3DDC97', textTransform: 'uppercase', letterSpacing: '1px' }}>Enterprise-Grade Security</span>
             </motion.div>
-            <h2 style={{ fontSize: '42px', fontWeight: 800, color: '#E6EDF7', marginBottom: '16px' }}>
+            <h2 style={{ fontSize: 'clamp(26px, 5vw, 42px)', fontWeight: 800, color: '#E6EDF7', marginBottom: '16px' }}>
               Trust & <span style={{ color: '#3DDC97' }}>Security</span>
             </h2>
             <p style={{ fontSize: '18px', color: '#9AA6B2', maxWidth: '600px', margin: '0 auto' }}>
@@ -503,7 +503,7 @@ const Hero = () => {
         <div id="roadmap" style={{ marginBottom: '120px' }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <h2 style={{ fontSize: '42px', fontWeight: 800, color: '#E6EDF7', marginBottom: '12px' }}>
+            <h2 style={{ fontSize: 'clamp(26px, 5vw, 42px)', fontWeight: 800, color: '#E6EDF7', marginBottom: '12px' }}>
               <span style={{ color: '#3DDC97' }}>Roadmap</span>
             </h2>
             <p style={{ fontSize: '18px', color: '#9AA6B2' }}>What's coming next</p>
@@ -535,7 +535,7 @@ const Hero = () => {
         <motion.div initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
           style={{ textAlign: 'center' }}>
           <div style={{
-            padding: '64px 48px', maxWidth: '900px', margin: '0 auto',
+            padding: 'clamp(32px, 5vw, 64px) clamp(20px, 4vw, 48px)', maxWidth: '900px', margin: '0 auto',
             background: 'linear-gradient(135deg, rgba(14, 20, 33, 0.95) 0%, rgba(18, 26, 41, 0.95) 100%)',
             backdropFilter: 'blur(20px)', border: '1px solid rgba(61, 220, 151, 0.3)',
             borderRadius: '32px', boxShadow: '0 0 60px rgba(61, 220, 151, 0.15), 0 30px 80px rgba(0, 0, 0, 0.5)',
@@ -558,7 +558,7 @@ const Hero = () => {
               <Sparkles style={{ width: '36px', height: '36px', color: '#0B0F17' }} />
             </motion.div>
             
-            <h2 style={{ fontSize: '40px', fontWeight: 800, marginBottom: '16px', color: '#E6EDF7', position: 'relative', zIndex: 1 }}>
+            <h2 style={{ fontSize: 'clamp(26px, 5vw, 40px)', fontWeight: 800, marginBottom: '16px', color: '#E6EDF7', position: 'relative', zIndex: 1 }}>
               Ready to go <span style={{
                 background: 'linear-gradient(135deg, #3DDC97 0%, #06B6D4 50%, #8B5CF6 100%)',
                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'
@@ -569,7 +569,13 @@ const Hero = () => {
             </p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
               <motion.button 
-                onClick={() => document.getElementById('quickstart')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  const el = document.getElementById('quickstart')
+                  if (el) {
+                    const top = el.getBoundingClientRect().top + window.scrollY - 80
+                    window.scrollTo({ top, behavior: 'smooth' })
+                  }
+                }}
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(34, 197, 94, 0.4)' }} 
                 whileTap={{ scale: 0.98 }}
                 style={{
