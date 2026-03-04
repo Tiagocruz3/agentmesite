@@ -105,6 +105,25 @@ const Navbar = () => {
                 {item}
               </motion.button>
             ))}
+            <motion.a
+              href="/docs"
+              whileHover={{ backgroundColor: 'rgba(61, 220, 151, 0.1)', scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              style={{
+                fontSize: '14px',
+                fontWeight: 500,
+                color: '#9AA6B2',
+                background: 'transparent',
+                border: 'none',
+                padding: '8px 16px',
+                borderRadius: '100px',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+                textDecoration: 'none',
+              }}
+            >
+              Docs
+            </motion.a>
           </div>
 
           {/* Desktop CTA */}
@@ -224,11 +243,39 @@ const Navbar = () => {
               </motion.button>
             ))}
 
+            <motion.a
+              href="/docs"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ delay: navItems.length * 0.07, duration: 0.3 }}
+              whileTap={{ scale: 0.95, backgroundColor: 'rgba(61, 220, 151, 0.08)' }}
+              style={{
+                fontSize: '22px',
+                fontWeight: 600,
+                color: '#E6EDF7',
+                background: 'transparent',
+                border: 'none',
+                padding: '18px 40px',
+                cursor: 'pointer',
+                borderRadius: '16px',
+                width: '100%',
+                maxWidth: '320px',
+                textAlign: 'center',
+                textDecoration: 'none',
+                display: 'block',
+                WebkitTapHighlightColor: 'transparent',
+                transition: 'background 0.15s ease',
+              }}
+            >
+              Docs
+            </motion.a>
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ delay: 0.3, duration: 0.3 }}
+              transition={{ delay: 0.35, duration: 0.3 }}
               style={{ width: '100%', maxWidth: '320px', marginTop: '16px' }}
             >
               <div style={{
