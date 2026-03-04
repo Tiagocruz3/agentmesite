@@ -1,8 +1,14 @@
 import { motion } from 'framer-motion'
 import SimpleNavbar from '../components/SimpleNavbar'
 import { FileText, Scale, Shield, AlertCircle } from 'lucide-react'
+import usePageSEO from '../hooks/usePageSEO'
 
 const TermsOfService = () => {
+  usePageSEO({
+    title: 'Terms of Service — Agent Me Server',
+    description: 'Terms of Service for Agent Me Server. Read our terms covering open-source licensing, acceptable use, data ownership, and liability.',
+    path: '/terms',
+  })
   const sections = [
     {
       title: '1. Acceptance of Terms',

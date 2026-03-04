@@ -31,6 +31,8 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
+        role="navigation"
+        aria-label="Main navigation"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -127,6 +129,8 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.9 }}
             style={{

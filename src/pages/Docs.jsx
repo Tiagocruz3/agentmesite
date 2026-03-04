@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import SimpleNavbar from '../components/SimpleNavbar'
+import usePageSEO from '../hooks/usePageSEO'
 import { 
   BookOpen, 
   Download, 
@@ -608,6 +609,11 @@ const FeaturesContent = () => (
 )
 
 const Docs = () => {
+  usePageSEO({
+    title: 'Documentation — Agent Me Server',
+    description: 'Complete documentation for Agent Me Server. Installation guide, API reference, configuration, troubleshooting, and feature overview.',
+    path: '/docs',
+  })
   const [activeSection, setActiveSection] = useState('overview')
 
   const renderContent = () => {

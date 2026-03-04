@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState } from 'react'
+import usePageSEO from '../hooks/usePageSEO'
 import { 
   Zap, 
   Shield, 
@@ -117,6 +118,11 @@ const roadmapItems = [
 ]
 
 const Hero = () => {
+  usePageSEO({
+    title: 'Agent Me Server — Open-Source Operator-First AI Agent Platform',
+    description: 'Deploy AI agents across WhatsApp, Telegram, Slack, and more. Self-hosted, open-source platform with 20+ AI providers, unified control plane, and enterprise-grade security.',
+    path: '/',
+  })
   const containerRef = useRef(null)
   const [copied, setCopied] = useState(false)
 
@@ -602,46 +608,46 @@ const Hero = () => {
         </motion.div>
 
         {/* FOOTER */}
-        <footer style={{ 
+        <footer role="contentinfo" style={{ 
           marginTop: '120px', paddingTop: '60px', borderTop: '1px solid rgba(47, 63, 97, 0.3)',
           textAlign: 'center'
         }}>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', marginBottom: '40px' }}>
-            <motion.a href="https://github.com/Agentme-AI/Server" target="_blank" rel="noopener noreferrer" whileHover={{ color: '#3DDC97' }}
+          <nav aria-label="Footer navigation" style={{ display: 'flex', justifyContent: 'center', gap: '40px', marginBottom: '40px', flexWrap: 'wrap' }}>
+            <motion.a href="https://github.com/Agentme-AI/Server" target="_blank" rel="noopener noreferrer" aria-label="Agent Me Server on GitHub" title="View Agent Me Server source code on GitHub" whileHover={{ color: '#3DDC97' }}
               style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
               GitHub
             </motion.a>
-            <motion.a href="https://x.com/Agentme_Ai" target="_blank" rel="noopener noreferrer" whileHover={{ color: '#3DDC97' }}
+            <motion.a href="https://x.com/Agentme_Ai" target="_blank" rel="noopener noreferrer" aria-label="Agent Me on X (Twitter)" title="Follow Agent Me on X" whileHover={{ color: '#3DDC97' }}
               style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
               X
             </motion.a>
-            <motion.a href="https://t.me/+MaFHhTWO129jOTM1" target="_blank" rel="noopener noreferrer" whileHover={{ color: '#3DDC97' }}
+            <motion.a href="https://t.me/+MaFHhTWO129jOTM1" target="_blank" rel="noopener noreferrer" aria-label="Agent Me Telegram community" title="Join our Telegram community" whileHover={{ color: '#3DDC97' }}
               style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
               Telegram
             </motion.a>
-            <motion.a href="/docs" whileHover={{ color: '#3DDC97' }}
+            <motion.a href="/docs" aria-label="Agent Me Server documentation" title="Read the documentation" whileHover={{ color: '#3DDC97' }}
               style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '15px', fontWeight: 500, transition: 'color 0.2s' }}>
               Documentation
             </motion.a>
-          </div>
+          </nav>
           
           {/* Legal Links */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '32px' }}>
-            <motion.a href="/terms" whileHover={{ color: '#3DDC97' }}
+          <nav aria-label="Legal" style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '32px' }}>
+            <motion.a href="/terms" title="Read our Terms of Service" whileHover={{ color: '#3DDC97' }}
               style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '13px', fontWeight: 500, transition: 'color 0.2s' }}>
               Terms of Service
             </motion.a>
-            <span style={{ color: 'rgba(47, 63, 97, 0.5)' }}>|</span>
-            <motion.a href="/privacy" whileHover={{ color: '#3DDC97' }}
+            <span aria-hidden="true" style={{ color: 'rgba(47, 63, 97, 0.5)' }}>|</span>
+            <motion.a href="/privacy" title="Read our Privacy Policy" whileHover={{ color: '#3DDC97' }}
               style={{ color: '#9AA6B2', textDecoration: 'none', fontSize: '13px', fontWeight: 500, transition: 'color 0.2s' }}>
               Privacy Policy
             </motion.a>
-          </div>
+          </nav>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '24px' }}>
-            <div style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, transparent, #2F3F61)' }} />
+            <div aria-hidden="true" style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, transparent, #2F3F61)' }} />
             <img 
               src="/logo.png" 
-              alt="Agent Me" 
+              alt="Agent Me Server — open-source operator-first AI agent platform" 
               style={{
                 width: '180px',
                 height: 'auto',
@@ -650,12 +656,15 @@ const Hero = () => {
                 background: 'transparent'
               }} 
             />
-            <div style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, #2F3F61, transparent)' }} />
+            <div aria-hidden="true" style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, #2F3F61, transparent)' }} />
           </div>
           <p style={{ color: '#9AA6B2', fontSize: '14px', lineHeight: 1.8 }}>
             Built with precision.<br />
             <span style={{ color: '#3DDC97' }}>Powered by OpenClaw.</span><br />
             <span style={{ color: '#8B5CF6' }}>Elevated by Agent Me.</span>
+          </p>
+          <p style={{ color: '#6B7280', fontSize: '12px', marginTop: '24px' }}>
+            &copy; {new Date().getFullYear()} AgentMe AI. All rights reserved.
           </p>
         </footer>
       </div>

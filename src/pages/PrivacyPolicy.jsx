@@ -1,8 +1,14 @@
 import { motion } from 'framer-motion'
 import SimpleNavbar from '../components/SimpleNavbar'
 import { Lock, Eye, Server, Shield, UserX, Cookie, Globe, Mail } from 'lucide-react'
+import usePageSEO from '../hooks/usePageSEO'
 
 const PrivacyPolicy = () => {
+  usePageSEO({
+    title: 'Privacy Policy — Agent Me Server',
+    description: 'Privacy Policy for Agent Me Server. Learn about our self-hosted, privacy-first approach — your data stays on your servers with zero external telemetry.',
+    path: '/privacy',
+  })
   const sections = [
     {
       title: 'Our Commitment to Privacy',
