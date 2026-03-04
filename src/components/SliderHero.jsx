@@ -35,8 +35,8 @@ export const MenuBarLogo = ({ onClick }) => (
       src="/logo.png" 
       alt="Agent Me" 
       style={{
-        width: 'clamp(180px, 22vw, 280px)',
-        height: 'auto',
+        width: 'auto',
+        height: '44px',
         objectFit: 'contain',
         background: 'transparent',
         display: 'block',
