@@ -6,6 +6,8 @@ import { MenuBarLogo } from './SliderHero'
 const SimpleNavbar = ({ showBackButton = true }) => {
   return (
     <motion.nav
+      role="navigation"
+      aria-label="Page navigation"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -15,9 +17,11 @@ const SimpleNavbar = ({ showBackButton = true }) => {
         left: 0,
         right: 0,
         zIndex: 1000,
-        padding: '16px 24px',
-        background: 'rgba(11, 15, 23, 0.95)',
+        height: '72px',
+        padding: '0 24px',
+        background: 'rgba(11, 15, 23, 0.97)',
         backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
         borderBottom: '1px solid rgba(47, 63, 97, 0.3)',
       }}
     >
@@ -27,13 +31,12 @@ const SimpleNavbar = ({ showBackButton = true }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        height: '100%',
       }}>
-        {/* Logo */}
-        <Link to="/" style={{ textDecoration: 'none' }}>
+        <Link to="/" style={{ textDecoration: 'none', height: '100%', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
           <MenuBarLogo />
         </Link>
 
-        {/* Back Button */}
         {showBackButton && (
           <Link to="/" style={{ textDecoration: 'none' }}>
             <motion.div

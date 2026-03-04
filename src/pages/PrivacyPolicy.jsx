@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import SimpleNavbar from '../components/SimpleNavbar'
-import { Lock, Eye, Server, Shield, UserX, Cookie, Globe, Mail } from 'lucide-react'
+import { Lock, Eye, Server, Shield, UserX, Cookie, Globe, Mail, Database, Key } from 'lucide-react'
 import usePageSEO from '../hooks/usePageSEO'
 
 const PrivacyPolicy = () => {
@@ -9,263 +9,246 @@ const PrivacyPolicy = () => {
     description: 'Privacy Policy for Agent Me Server. Learn about our self-hosted, privacy-first approach — your data stays on your servers with zero external telemetry.',
     path: '/privacy',
   })
+
   const sections = [
     {
       title: 'Our Commitment to Privacy',
       icon: Lock,
       content: `AgentMe Server is designed with privacy as a core principle. As a self-hosted platform, we fundamentally differ from cloud-based services in how data is handled.
 
-• Your data stays on your infrastructure
+• Your data stays on your infrastructure — always
 • We cannot access your conversations, files, or configurations
-• You maintain full control over all personal information
-• No telemetry is sent to us without your explicit consent`
+• You maintain full control over all personal and operational information
+• No telemetry, analytics, or diagnostics are sent to us without your explicit consent
+• The source code is open for inspection — verify our privacy claims yourself`
     },
     {
       title: 'Information We Do NOT Collect',
       icon: UserX,
       content: `Because AgentMe Server is self-hosted, we do NOT have access to:
 
-• Chat conversations or message content
-• User identities or contact information
-• Files uploaded to your agents
-• Agent configurations or memory
-• API keys or authentication tokens
-• Usage patterns or analytics
-• Error logs or debugging information
+• Chat conversations or message content between you and your agents
+• User identities, email addresses, or contact information
+• Files, documents, or media uploaded to your agents
+• Agent configurations, memory files, or system prompts
+• API keys, authentication tokens, or passwords
+• Usage patterns, analytics, or behavioral data
+• Error logs, crash reports, or debugging information
+• IP addresses or device fingerprints from your deployment
 
-All of this data remains exclusively on your servers and under your control.`
+All of this data remains exclusively on your servers and under your complete control.`
     },
     {
-      title: 'Limited Information Collection',
+      title: 'Information We May Collect',
       icon: Eye,
-      content: `The only information we may collect:
+      content: `The only information we may collect comes from voluntary interactions:
 
 GitHub Repository Interactions:
 • Issues and bug reports you voluntarily submit
 • Pull requests and code contributions
-• Discussion forum posts
-• Stars and fork activity (public)
+• Discussion forum posts and comments
+• Stars and fork activity (publicly visible on GitHub)
 
-Website Analytics (if applicable):
-• Anonymous page view statistics
-• Referrer information
-• Browser type and version
-• Geographic region (country-level only)
+Website Analytics (agentme.app):
+• Anonymous page view statistics via privacy-respecting analytics
+• Referrer information (which site linked to us)
+• Browser type and version (aggregated, not individual)
+• Geographic region (country-level only, no IP storage)
 
-This data is used solely for improving the Software and understanding community engagement.`
+This data is used solely for improving the Software, understanding community needs, and measuring the impact of our documentation.`
     },
     {
       title: 'Self-Hosted Data Storage',
-      icon: Server,
+      icon: Database,
       content: `When you deploy AgentMe Server, the following data is stored locally on your infrastructure:
 
 Configuration Data:
-• Agent identities and settings (config.json)
-• Channel configurations and tokens
-• User authentication credentials (if enabled)
+• Agent identities and behavioral settings (config.json)
+• Channel configurations and connection tokens (WhatsApp, Telegram, Slack, etc.)
+• User authentication credentials (if authentication is enabled)
+• System preferences and environment variables
 
 Operational Data:
 • Conversation history and session logs
-• Agent memory files (MEMORY.md)
-• Uploaded files and attachments
-• Task execution logs
-• System logs and error reports
+• Agent memory files (MEMORY.md) for context persistence
+• Uploaded files, documents, and media attachments
+• Task execution logs and scheduling history
+• System logs, error reports, and performance metrics
 
 You are responsible for:
-• Securing this data on your servers
-• Implementing appropriate access controls
-• Complying with data protection regulations in your jurisdiction
-• Maintaining backups and disaster recovery`
+• Securing this data with appropriate access controls and encryption
+• Implementing network-level security (firewalls, VPNs, TLS)
+• Complying with data protection regulations in your jurisdiction (GDPR, CCPA, HIPAA)
+• Maintaining regular backups and disaster recovery procedures
+• Informing your end users about how their data is processed`
     },
     {
       title: 'AI Provider Data Handling',
       icon: Globe,
-      content: `When using AgentMe Server with third-party AI providers:
+      content: `When using AgentMe Server with third-party AI providers, data is transmitted to those providers:
 
 Data Sent to AI Providers:
-• Message content you send to agents
-• Conversation context and history
-• System prompts and agent instructions
-• File content you explicitly share
+• Message content and prompts you send to agents
+• Conversation context and history for continuity
+• System prompts and agent behavioral instructions
+• File content you explicitly share with agents for processing
 
-Each AI provider (OpenAI, Anthropic, Google, etc.) has its own privacy policy:
+Each AI provider has its own privacy policy governing how they handle your data:
 • OpenAI: https://openai.com/privacy
 • Anthropic: https://www.anthropic.com/privacy
 • Google: https://policies.google.com/privacy
+• Mistral: https://mistral.ai/privacy
 
-You should review these policies and:
-• Configure data retention settings appropriately
-• Use providers that meet your privacy requirements
-• Consider local models (Ollama) for sensitive data`
+We recommend that you:
+• Review each provider's data retention and training policies
+• Configure data retention settings per provider where available
+• Use local models (e.g., Ollama) for sensitive or confidential data
+• Avoid sending personally identifiable information (PII) through cloud providers when possible`
     },
     {
       title: 'Security Measures',
-      icon: Shield,
-      content: `AgentMe Server implements several security features:
+      icon: Key,
+      content: `AgentMe Server implements several built-in security features:
 
 Built-in Protections:
-• Token-based authentication
-• TLS/SSL encryption for connections
-• Sandbox environment for tool execution
-• Configurable rate limiting
-• Session management and timeouts
+• Token-based authentication (JWT) with configurable expiration
+• TLS/SSL encryption for all network connections
+• Sandboxed environment for tool and code execution
+• Configurable rate limiting to prevent abuse
+• Session management with automatic timeouts
+• CORS configuration for web interface security
+• Content Security Policy (CSP) headers
 
 Your Responsibilities:
-• Keep the Software and dependencies updated
-• Use strong, unique passwords and API keys
-• Enable authentication for production deployments
-• Implement network-level security (firewalls, VPNs)
-• Regular security audits and penetration testing
-• Secure backup storage with encryption`
+• Keep the Software and all dependencies updated to the latest versions
+• Use strong, unique passwords and API keys for all services
+• Enable authentication for all production deployments
+• Implement network-level security (firewalls, reverse proxies, VPNs)
+• Conduct regular security audits and vulnerability assessments
+• Encrypt backup storage and secure access credentials
+• Monitor logs for unauthorized access attempts`
     },
     {
       title: 'Cookies and Local Storage',
       icon: Cookie,
-      content: `The AgentMe Server web interface uses:
+      content: `The AgentMe Server web interface uses minimal browser storage:
 
 Session Cookies:
-• Authentication tokens (if auth is enabled)
-• Session identifiers
-• CSRF protection tokens
+• Authentication tokens (if auth is enabled) — essential for security
+• Session identifiers for maintaining your login state
+• CSRF protection tokens to prevent cross-site request forgery
 
 Local Storage:
-• User interface preferences (theme, layout)
-• Cached data for performance
-• Draft messages (unsent)
+• User interface preferences (theme, layout, sidebar state)
+• Cached data for improved performance
+• Draft messages (unsent content, stored locally only)
 
-These are stored in the user's browser and are not transmitted to us. No third-party cookies are used.`
+Important:
+• These are stored in the user's browser and are never transmitted to AgentMe AI
+• No third-party cookies or tracking pixels are used
+• No advertising or analytics cookies are placed
+• All browser storage is cleared when you log out or clear your browser data`
     },
     {
       title: 'Your Rights and Choices',
-      icon: UserX,
-      content: `As a self-hosted platform, you have complete control over your data:
+      icon: Shield,
+      content: `As a self-hosted platform, you have complete and unrestricted control over your data:
 
 Right to Access:
-• All your data is stored in accessible files
-• Export configuration and logs at any time
-• Query the database directly (if applicable)
+• All your data is stored in human-readable files on your server
+• Export configuration and logs at any time without restriction
+• Query any stored data directly through your infrastructure
 
 Right to Deletion:
-• Delete any data by removing files
-• Clear logs and conversation history
-• Uninstall the Software completely
+• Delete any data by removing files from your server
+• Clear logs and conversation history at your discretion
+• Completely uninstall the Software and remove all associated data
 
 Right to Portability:
 • Configuration is stored in standard JSON format
-• Export and import to other instances
-• Compatible with OpenClaw format
+• Export and import data between AgentMe instances
+• Data formats are compatible with OpenClaw upstream
 
 Right to Control:
-• Disable any features you don't want
-• Run completely offline (no internet required)
-• Modify the source code to meet your needs`
+• Disable any features, channels, or integrations you don't need
+• Run completely offline with local AI models (no internet required)
+• Modify the open-source code to meet your specific privacy requirements
+• Choose exactly which AI providers and services to connect`
     },
     {
       title: 'Compliance Considerations',
       icon: Globe,
-      content: `Because you self-host AgentMe Server, compliance responsibilities depend on your deployment:
+      content: `Because you self-host AgentMe Server, compliance responsibilities depend on your specific deployment and jurisdiction:
 
 GDPR (European Union):
-• You are the Data Controller
-• Ensure lawful basis for processing
-• Implement data subject rights (access, deletion)
-• Maintain records of processing activities
+• You are the Data Controller for all data processed by your instance
+• Ensure you have a lawful basis for processing personal data
+• Implement data subject rights (access, rectification, erasure, portability)
+• Maintain records of processing activities as required
 
-CCPA (California):
-• Disclose categories of personal information collected
-• Provide opt-out mechanisms if selling data
-• Respond to verifiable consumer requests
+CCPA (California, USA):
+• Disclose categories of personal information collected by your agents
+• Provide opt-out mechanisms if your deployment involves selling data
+• Respond to verifiable consumer requests within required timeframes
 
-HIPAA (Healthcare):
-• AgentMe Server is not HIPAA-certified
-• Additional safeguards required for PHI
-• Consider Business Associate Agreements
+HIPAA (Healthcare, USA):
+• AgentMe Server is not HIPAA-certified out of the box
+• Additional safeguards are required for Protected Health Information (PHI)
+• Consider Business Associate Agreements with any cloud AI providers
+• Use local models and encrypted storage for healthcare data
 
 SOC 2 / ISO 27001:
-• Implement appropriate security controls
-• Maintain audit logs
-• Regular security assessments`
+• Implement appropriate security controls per the relevant framework
+• Maintain comprehensive audit logs of all system access and changes
+• Conduct regular security assessments and penetration tests`
+    },
+    {
+      title: 'Children\'s Privacy',
+      icon: UserX,
+      content: `AgentMe Server is not designed for or directed at children under the age of 13 (or the applicable age of digital consent in your jurisdiction).
+
+• We do not knowingly collect personal information from children
+• If you deploy AgentMe Server in an environment where children may interact with it, you are responsible for ensuring appropriate safeguards and parental consent mechanisms are in place
+• If you become aware that a child has provided personal information through your deployment, you should take steps to delete that information promptly`
     },
     {
       title: 'Changes to This Policy',
       icon: Mail,
       content: `We may update this Privacy Policy to reflect:
 
-• Changes in the Software functionality
-• New features that affect data handling
-• Feedback from the community
-• Legal or regulatory requirements
+• Changes in the Software functionality that affect data handling
+• New features, integrations, or channels that involve data processing
+• Feedback and concerns from our community
+• Evolving legal or regulatory requirements
 
 Changes will be posted to:
-• Our GitHub repository
-• This website
-• Release notes
+• Our GitHub repository (PRIVACY.md)
+• This website (agentme.app/privacy)
+• Release notes for relevant Software versions
 
-Since we don't collect contact information, we cannot notify you directly of changes. Please review this policy periodically.
+Since we don't collect your contact information, we cannot notify you directly of changes. We recommend reviewing this policy periodically, especially after major Software updates.
 
 Last Updated: March 2026`
     },
     {
       title: 'Contact Us',
       icon: Mail,
-      content: `For privacy-related questions or concerns:
+      content: `For privacy-related questions, concerns, or requests:
 
-GitHub Issues:
-https://github.com/Agentme-AI/Server/issues
+• GitHub Issues: https://github.com/Agentme-AI/Server/issues
+• GitHub Discussions: https://github.com/Agentme-AI/Server/discussions
+• Telegram Community: https://t.me/+MaFHhTWO129jOTM1
+• X (Twitter): https://x.com/Agentme_Ai
 
-GitHub Discussions:
-https://github.com/Agentme-AI/Server/discussions
-
-Telegram Community:
-https://t.me/+MaFHhTWO129jOTM1
-
-For security vulnerabilities, please use responsible disclosure and contact us privately before public disclosure.`
+For security vulnerabilities, please use responsible disclosure and contact us privately through GitHub Security Advisories before any public disclosure.`
     }
   ]
 
   return (
     <div style={{ minHeight: '100vh', background: '#0B0F17' }}>
-      {/* Navigation */}
-      <nav style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        padding: '20px 24px',
-        background: 'rgba(11, 15, 23, 0.9)',
-        backdropFilter: 'blur(10px)',
-        borderBottom: '1px solid rgba(47, 63, 97, 0.3)',
-        zIndex: 100
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <MenuBarLogo onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
-          </Link>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <motion.div
-              whileHover={{ x: -4 }}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '10px 18px',
-                background: 'rgba(47, 63, 97, 0.3)',
-                border: '1px solid rgba(47, 63, 97, 0.5)',
-                borderRadius: '100px',
-                color: '#9AA6B2',
-                fontSize: '14px',
-                fontWeight: 500,
-                cursor: 'pointer'
-              }}
-            >
-              <ArrowLeft style={{ width: '16px', height: '16px' }} />
-              Back to Home
-            </motion.div>
-          </Link>
-        </div>
-      </nav>
+      <SimpleNavbar />
 
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '120px 24px 40px' }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '120px 24px 80px' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -291,7 +274,7 @@ For security vulnerabilities, please use responsible disclosure and contact us p
               <span style={{ fontSize: '14px', fontWeight: 700, color: '#3DDC97', textTransform: 'uppercase', letterSpacing: '1px' }}>Privacy</span>
             </motion.div>
             
-            <h1 style={{ fontSize: '48px', fontWeight: 800, color: '#E6EDF7', marginBottom: '16px' }}>
+            <h1 style={{ fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 800, color: '#E6EDF7', marginBottom: '16px' }}>
               Privacy <span style={{ color: '#3DDC97' }}>Policy</span>
             </h1>
             <p style={{ fontSize: '18px', color: '#9AA6B2', maxWidth: '700px', margin: '0 auto' }}>
@@ -313,11 +296,11 @@ For security vulnerabilities, please use responsible disclosure and contact us p
             }}
           >
             <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#3DDC97', marginBottom: '8px' }}>
-              🔒 Privacy by Design
+              Privacy by Design
             </h3>
-            <p style={{ fontSize: '15px', color: '#9AA6B2', margin: 0 }}>
+            <p style={{ fontSize: '15px', color: '#9AA6B2', margin: 0, maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
               AgentMe Server is self-hosted. We don't have access to your data, conversations, or configurations. 
-              Everything stays on your infrastructure.
+              Everything stays on your infrastructure, under your full control.
             </p>
           </motion.div>
 
@@ -329,9 +312,9 @@ For security vulnerabilities, please use responsible disclosure and contact us p
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.05 + 0.2 }}
+                  transition={{ delay: idx * 0.04 + 0.2 }}
                   style={{
-                    padding: '32px',
+                    padding: 'clamp(20px, 3vw, 32px)',
                     background: 'linear-gradient(135deg, rgba(14, 20, 33, 0.9) 0%, rgba(18, 26, 41, 0.9) 100%)',
                     border: '1px solid rgba(47, 63, 97, 0.4)',
                     borderRadius: '20px'
@@ -351,7 +334,7 @@ For security vulnerabilities, please use responsible disclosure and contact us p
                     }}>
                       <Icon style={{ width: '24px', height: '24px', color: '#3DDC97' }} />
                     </div>
-                    <div style={{ flex: 1 }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
                       <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#E6EDF7', marginBottom: '12px' }}>
                         {section.title}
                       </h2>
@@ -390,12 +373,7 @@ For security vulnerabilities, please use responsible disclosure and contact us p
               href="https://github.com/Agentme-AI/Server/issues" 
               target="_blank" 
               rel="noopener noreferrer"
-              style={{ 
-                color: '#3DDC97', 
-                textDecoration: 'none',
-                fontSize: '14px',
-                fontWeight: 600
-              }}
+              style={{ color: '#3DDC97', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}
             >
               Contact us on GitHub →
             </a>

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import SimpleNavbar from '../components/SimpleNavbar'
-import { FileText, Scale, Shield, AlertCircle } from 'lucide-react'
+import { FileText, Scale, Shield, AlertCircle, Gavel, Globe, Users, RefreshCw } from 'lucide-react'
 import usePageSEO from '../hooks/usePageSEO'
 
 const TermsOfService = () => {
@@ -9,13 +9,14 @@ const TermsOfService = () => {
     description: 'Terms of Service for Agent Me Server. Read our terms covering open-source licensing, acceptable use, data ownership, and liability.',
     path: '/terms',
   })
+
   const sections = [
     {
       title: '1. Acceptance of Terms',
       icon: FileText,
       content: `By accessing, downloading, installing, or using AgentMe Server (the "Software"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not access or use the Software.
 
-These Terms constitute a legally binding agreement between you and AgentMe AI ("we," "us," or "our") regarding your use of the Software and any related services.`
+These Terms constitute a legally binding agreement between you and AgentMe AI ("we," "us," or "our") regarding your use of the Software and any related services, documentation, and community resources.`
     },
     {
       title: '2. Open Source License',
@@ -23,8 +24,8 @@ These Terms constitute a legally binding agreement between you and AgentMe AI ("
       content: `AgentMe Server is released under the MIT License. This means:
 
 • You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software
-• You must include the copyright notice and permission notice in all copies or substantial portions
-• The Software is provided "as is", without warranty of any kind
+• You must include the copyright notice and permission notice in all copies or substantial portions of the Software
+• The Software is provided "as is", without warranty of any kind, express or implied
 • We are not liable for any claim, damages, or other liability arising from the use of the Software
 
 The full MIT License text is available at: https://github.com/Agentme-AI/Server/blob/main/LICENSE`
@@ -35,101 +36,122 @@ The full MIT License text is available at: https://github.com/Agentme-AI/Server/
       content: `AgentMe Server is a self-hosted platform. This means:
 
 • You are solely responsible for the deployment, operation, and maintenance of your instance
-• You control your own data, infrastructure, and configuration
-• We do not have access to your servers, data, or conversations
+• You control your own data, infrastructure, and configuration at all times
+• We do not have access to your servers, data, conversations, or credentials
 • You are responsible for ensuring compliance with applicable laws and regulations in your jurisdiction
-• You must secure your own API keys, tokens, and credentials`
+• You must secure your own API keys, tokens, and credentials
+• You are responsible for maintaining backups and disaster recovery procedures`
     },
     {
       title: '4. AI Provider Terms',
-      icon: AlertCircle,
-      content: `When using AgentMe Server with third-party AI providers (OpenAI, Anthropic, Google, etc.):
+      icon: Globe,
+      content: `When using AgentMe Server with third-party AI providers (OpenAI, Anthropic, Google, Mistral, Ollama, etc.):
 
 • You must comply with each provider's terms of service and acceptable use policies
-• You are responsible for any costs incurred through API usage
-• You must not use the Software to violate provider policies or generate harmful content
-• Rate limits and usage restrictions of AI providers apply`
+• You are responsible for any costs incurred through API usage with these providers
+• You must not use the Software to violate provider policies or generate harmful, illegal, or misleading content
+• Rate limits and usage restrictions imposed by AI providers apply independently
+• We are not responsible for any changes, outages, or policy modifications by third-party providers
+• You should review each provider's data retention and privacy policies before use`
     },
     {
       title: '5. Acceptable Use',
-      icon: Shield,
+      icon: Gavel,
       content: `You agree not to use AgentMe Server to:
 
-• Violate any applicable laws or regulations
-• Infringe on intellectual property rights
-• Generate or distribute malware, spam, or harmful content
-• Harass, abuse, or harm individuals or groups
-• Interfere with or disrupt the integrity of any systems
-• Misrepresent the identity or origin of communications
-• Engage in unauthorized data mining or scraping
+• Violate any applicable local, state, national, or international laws or regulations
+• Infringe on intellectual property rights of any party
+• Generate or distribute malware, spam, phishing content, or other harmful material
+• Harass, abuse, threaten, or harm individuals or groups
+• Impersonate any person or entity, or misrepresent your affiliation with any person or entity
+• Interfere with or disrupt the integrity of any systems or networks
+• Engage in unauthorized data mining, scraping, or collection of personal information
+• Create agents that deceive users about their AI nature when transparency is legally required
 
-We reserve the right to terminate access to our repositories and community resources for violations.`
+We reserve the right to terminate access to our repositories and community resources for violations of these terms.`
     },
     {
       title: '6. Data and Privacy',
       icon: Shield,
       content: `As a self-hosted platform:
 
-• We do not collect, store, or process your data
-• Your conversations, configurations, and files remain on your infrastructure
-• You are the data controller and responsible for data protection compliance (GDPR, CCPA, etc.)
-• Anonymous usage statistics may be collected if explicitly enabled by you
-• See our Privacy Policy for more details`
+• We do not collect, store, or process your operational data
+• Your conversations, agent configurations, memory files, and uploaded files remain exclusively on your infrastructure
+• You are the data controller and responsible for data protection compliance (GDPR, CCPA, HIPAA, etc.)
+• Anonymous, opt-in usage statistics may be collected only if explicitly enabled by you
+• We may collect standard analytics on our website (agentme.app) — see our Privacy Policy for details
+• You are responsible for informing your end users about data processing when deploying agents`
     },
     {
-      title: '7. No Warranty',
+      title: '7. Intellectual Property',
+      icon: Users,
+      content: `• The AgentMe Server source code is licensed under MIT — you may use it freely within the license terms
+• The "Agent Me" name, logo, and branding are trademarks of AgentMe AI
+• You may not use our trademarks to imply endorsement without prior written consent
+• Contributions to the project via pull requests are subject to the project's Contributor License Agreement
+• Custom agents, configurations, and workflows you create using the Software are your intellectual property`
+    },
+    {
+      title: '8. No Warranty',
       icon: AlertCircle,
       content: `THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
 
 We do not guarantee that:
-• The Software will meet your requirements
+• The Software will meet your specific requirements
 • The Software will be uninterrupted, timely, secure, or error-free
-• The results from using the Software will be accurate or reliable
-• Any errors in the Software will be corrected`
+• The results obtained from using the Software will be accurate or reliable
+• Any errors in the Software will be corrected in a timely manner
+• The Software will be compatible with all third-party services or hardware`
     },
     {
-      title: '8. Limitation of Liability',
+      title: '9. Limitation of Liability',
       icon: Scale,
-      content: `IN NO EVENT SHALL WE BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+      content: `IN NO EVENT SHALL AGENTME AI, ITS CONTRIBUTORS, OR MAINTAINERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 This includes, but is not limited to:
-• Loss of data or profits
-• Business interruption
-• Personal injury or privacy violations
-• Failure to comply with regulations in your jurisdiction`
+• Loss of data, profits, or business opportunities
+• Business interruption or downtime
+• Personal injury or privacy violations resulting from your deployment
+• Failure to comply with regulations in your jurisdiction
+• Costs of procurement of substitute goods or services
+• Any indirect, incidental, special, consequential, or punitive damages`
     },
     {
-      title: '9. Indemnification',
+      title: '10. Indemnification',
       icon: Shield,
-      content: `You agree to indemnify, defend, and hold harmless AgentMe AI and its contributors from and against any and all claims, damages, obligations, losses, liabilities, costs, or debt, and expenses arising from:
+      content: `You agree to indemnify, defend, and hold harmless AgentMe AI, its contributors, and maintainers from and against any and all claims, damages, obligations, losses, liabilities, costs, or debt, and expenses arising from:
 
 • Your use of and access to the Software
 • Your violation of any term of these Terms
 • Your violation of any third-party right, including privacy or intellectual property rights
-• Any claim that your use caused damage to a third party`
+• Any claim that your deployment or use of the Software caused damage to a third party
+• Your failure to comply with applicable laws and regulations`
     },
     {
-      title: '10. Changes to Terms',
-      icon: FileText,
-      content: `We reserve the right to modify or replace these Terms at any time. Changes will be effective immediately upon posting to our GitHub repository.
+      title: '11. Changes to Terms',
+      icon: RefreshCw,
+      content: `We reserve the right to modify or replace these Terms at any time. Changes will be effective immediately upon posting to our GitHub repository and/or this website.
 
-Your continued use of the Software after any changes constitutes acceptance of the new Terms. It is your responsibility to review these Terms periodically.`
+Your continued use of the Software after any changes constitutes acceptance of the new Terms. It is your responsibility to review these Terms periodically for changes.
+
+We will make reasonable efforts to communicate significant changes through our GitHub release notes and community channels.`
     },
     {
-      title: '11. Governing Law',
-      icon: Scale,
+      title: '12. Governing Law',
+      icon: Globe,
       content: `These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which the primary maintainer resides, without regard to its conflict of law provisions.
 
-Any disputes arising under these Terms shall be resolved through good faith negotiation, and if necessary, binding arbitration.`
+Any disputes arising under these Terms shall be resolved through good faith negotiation. If negotiation fails, disputes shall be resolved through binding arbitration in accordance with the rules of the applicable arbitration authority.`
     },
     {
-      title: '12. Contact',
+      title: '13. Contact',
       icon: FileText,
       content: `For questions about these Terms, please contact us through:
 
 • GitHub Issues: https://github.com/Agentme-AI/Server/issues
 • GitHub Discussions: https://github.com/Agentme-AI/Server/discussions
-• Telegram: https://t.me/+MaFHhTWO129jOTM1
+• Telegram Community: https://t.me/+MaFHhTWO129jOTM1
+• X (Twitter): https://x.com/Agentme_Ai
 
 Last Updated: March 2026`
     }
@@ -137,47 +159,9 @@ Last Updated: March 2026`
 
   return (
     <div style={{ minHeight: '100vh', background: '#0B0F17' }}>
-      {/* Navigation */}
-      <nav style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        padding: '20px 24px',
-        background: 'rgba(11, 15, 23, 0.9)',
-        backdropFilter: 'blur(10px)',
-        borderBottom: '1px solid rgba(47, 63, 97, 0.3)',
-        zIndex: 100
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <MenuBarLogo onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
-          </Link>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <motion.div
-              whileHover={{ x: -4 }}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '10px 18px',
-                background: 'rgba(47, 63, 97, 0.3)',
-                border: '1px solid rgba(47, 63, 97, 0.5)',
-                borderRadius: '100px',
-                color: '#9AA6B2',
-                fontSize: '14px',
-                fontWeight: 500,
-                cursor: 'pointer'
-              }}
-            >
-              <ArrowLeft style={{ width: '16px', height: '16px' }} />
-              Back to Home
-            </motion.div>
-          </Link>
-        </div>
-      </nav>
+      <SimpleNavbar />
 
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '120px 24px 40px' }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '120px 24px 80px' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -203,7 +187,7 @@ Last Updated: March 2026`
               <span style={{ fontSize: '14px', fontWeight: 700, color: '#3DDC97', textTransform: 'uppercase', letterSpacing: '1px' }}>Legal</span>
             </motion.div>
             
-            <h1 style={{ fontSize: '48px', fontWeight: 800, color: '#E6EDF7', marginBottom: '16px' }}>
+            <h1 style={{ fontSize: 'clamp(32px, 5vw, 48px)', fontWeight: 800, color: '#E6EDF7', marginBottom: '16px' }}>
               Terms of <span style={{ color: '#3DDC97' }}>Service</span>
             </h1>
             <p style={{ fontSize: '18px', color: '#9AA6B2', maxWidth: '600px', margin: '0 auto' }}>
@@ -219,9 +203,9 @@ Last Updated: March 2026`
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.05 + 0.2 }}
+                  transition={{ delay: idx * 0.04 + 0.2 }}
                   style={{
-                    padding: '32px',
+                    padding: 'clamp(20px, 3vw, 32px)',
                     background: 'linear-gradient(135deg, rgba(14, 20, 33, 0.9) 0%, rgba(18, 26, 41, 0.9) 100%)',
                     border: '1px solid rgba(47, 63, 97, 0.4)',
                     borderRadius: '20px'
@@ -241,7 +225,7 @@ Last Updated: March 2026`
                     }}>
                       <Icon style={{ width: '24px', height: '24px', color: '#3DDC97' }} />
                     </div>
-                    <div style={{ flex: 1 }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
                       <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#E6EDF7', marginBottom: '12px' }}>
                         {section.title}
                       </h2>
@@ -280,12 +264,7 @@ Last Updated: March 2026`
               href="https://github.com/Agentme-AI/Server/issues" 
               target="_blank" 
               rel="noopener noreferrer"
-              style={{ 
-                color: '#3DDC97', 
-                textDecoration: 'none',
-                fontSize: '14px',
-                fontWeight: 600
-              }}
+              style={{ color: '#3DDC97', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}
             >
               Contact us on GitHub →
             </a>
