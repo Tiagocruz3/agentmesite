@@ -40,7 +40,8 @@ const Navbar = () => {
           left: 0,
           right: 0,
           zIndex: 1000,
-          padding: '12px 24px',
+          height: '72px',
+          padding: '0 24px',
           background: isScrolled ? 'rgba(11, 15, 23, 0.97)' : 'rgba(11, 15, 23, 0.7)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
@@ -54,9 +55,12 @@ const Navbar = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          height: '100%',
         }}>
           {/* Logo */}
-          <MenuBarLogo onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+          <div style={{ height: '100%', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+            <MenuBarLogo onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+          </div>
 
           {/* Desktop Navigation */}
           <div style={{
